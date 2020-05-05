@@ -1,0 +1,8 @@
+Codificación de caracteres HTML.
+Dados los siguientes caracteres:
+    <!-- ; < >  &  ' "  backslash   /  copyright, nonbreaking space, € -->
+    
+Escribe un documento html que muestre su equivalente mediante el nombre HTML.
+En caso de no existir un nombre HTML usa el número HTML.
+Puedes usar este recurso: 
+https://www.ascii.cl/htmlcodes.htm
