@@ -1,0 +1,43 @@
+
+/*
+Selector de elemento (llamado algunas veces selector de etiqueta o tipo)
+p
+Selecciona:
+<p>
+
+Selector de identificación (ID)
+#my-id
+Selecciona:
+<p id="my-id"> y <a id="my-id">
+
+Selector de Clase
+.my-class
+Selecciona:
+<p class="my-class"> y <a class="my-class">
+
+Selector de atributo
+img[src]
+Selecciona:
+<img src="myimage.png"> pero no <img>
+
+Selector de Pseudo-clase
+a:hover
+Selecciona:
+<a>, pero solo cuando el puntero esté sobre el enlace.
+ */
+
+ html {
+    font-size: 10px; /* px quiere decir 'pixels': la base del tamaño de fuente es ahora de 1o pixeles*/
+  }
+
+ h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    text-align: center;
+  }
+
+  p, li {
+    font-size: 16px;    
+    line-height: 2;
+    letter-spacing: 1px;
+  }

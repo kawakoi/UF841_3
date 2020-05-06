@@ -1,0 +1,6 @@
+ESPACIOS EN BLANCO HTML. PRACTICANDO CON CARACTERES ESPECIALES.
+
+Escribe el html necesario para hacer posible que se visualize el resultado de la imagen.
+
+Ten en cuenta que el navegador interpreta dos espacios en blanco como uno solo.
+Para forzar espacios en blanco con HTML debemos escribirlos mediante su nombre HTML.
