@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -13,11 +14,11 @@
 
 </header>
 
-<h2>Indice</h2>
+<nav>
+    
+    <h3>Tabla de contenido</h3>
 
-<nav id="indice">Tabla de contenido
-
-<ul>
+<ul id="indice" class="index">
     <li><a href="#punto1">1. Introducción</a></li>
     <li><a href="#punto2">2. Origen de los lenguajes de marcado generales: SGML y XML</a></li>
     <li><a href="#punto2.1">2.1. Origen: GML y SGML</a></li>
@@ -42,14 +43,14 @@
     <p>Los jes de marcado o lenguajes de marcas se pueden definir como una manera de codificar documentos donde, junto con el texto, se establecen etiquetas, marcas o anotaciones que contienen información relacionada con la estructura de dicho texto, su forma de visualización, etc.
     HTML es el lenguaje de marcas que se utiliza para crear páginas web, aunque no es el único.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto2">
     <h3>2. Origen de los lenguajes de marcado generales: SGML y XML</h3>
     <p>El origen de los lenguajes de marcas empezó con la necesidad de estandarizar el formato de los documentos electrónicos y, en la década de los 70, la empresa estadounidense IBM fue la encargada de solucionar el problema de la descripción de documentos.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto2.1">
@@ -60,7 +61,7 @@
     <p>SGML no almacena el diseño de los documentos, sino la estructura lógica de los mismos. Esto se consigue gracias al uso de etiquetas o tags que se incluyen entre los signos “&lt;” y “>”. Estas etiquetas indican el comienzo y el final de elementos tales como párrafos, listas, títulos, etc. El objetivo de la creación de este lenguaje era asegurar que los documentos electrónicos fuesen independientes de los formatos de archivo binario (Word, WordPerfect, etc.) y de los sistemas operativos (Windows, Mac OS, etc.).</p>
     <p>El SGML no prosperó debido fundamentalmente a su complejidad y al elevado coste que suponía adquirir una de las herramientas que se utilizaban para su creación.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto2.2">
@@ -69,7 +70,7 @@
     <p>HTML resultó ser un lenguaje muy sencillo, lo que ayudó a la popularización de la Web. El crecimiento de esta última fue tal que se decidió crear el W3C (World Wide Web Consortium) cuya misión sería el desarrollo de lenguajes y estándares para la WWW.</p>
     <p>Durante años, fueron apareciendo distintas versiones de este lenguaje de marcas, las cuales permitieron mejorar, ampliar e innovar sus posibilidades respecto a la implementación de elementos y funcionalidades nuevas en las páginas web.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto2.3">
@@ -81,20 +82,20 @@
     <p>Los documentos escritos en XML no incluyen ninguna información relacionada con el aspecto y el diseño de los mismos, almacenando únicamente datos e información estructural.</p>
     <p>La utilización de XML para crear documentos web resultaba realmente complicada y, además, muchos navegadores tenían problemas para interpretar correctamente estos documentos. Por este motivo, se definió un nuevo lenguaje que incluyera las posibilidades de HTML y que mantuviera la filosofía de XML: el XHTML (eXtensible HyperText Markup Language). XHTML se creó reformulando el lenguaje HTML, haciéndolo compatible con XML. El lenguaje XHTML puede coexistir con HTML.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto3">
     <h3>3. Características generales de los lenguajes de marcado</h3>
     <p>Los lenguajes de marcas presentan las siguientes características fundamentales: Combinan la información contenida en un documento (por lo general, texto) con marcas o indicaciones relacionadas con su estructura o la forma de representarlo. El propio lenguaje de marcas es el que especifica los tipos de etiquetas que se pueden emplear, en qué lugares pueden colocarse y el significado que tiene cada una de ellas. A diferencia de otros lenguajes de programación, los lenguajes de marcas carecen de variables y funciones aritméticas. La presencia de etiquetas intercaladas en un documento escrito con lenguaje de marcas refleja inequívocamente su estructura y jerarquía. Los programas que interpretan los documentos escritos con lenguajes de marcas no suelen mostrar al usuario las etiquetas propiamente dichas, ya que este suele estar interesado en visualizar únicamente el propio contenido del documento. Fundamentalmente, existen tres términos que se suelen usar para describir las partes de un documento escrito con lenguajes de marcas: las etiquetas, los elementos y los atributos.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4">
     <h3>4. Estructura general de un documento con lenguaje de marcado</h3>
     <p>En un documento escrito con un lenguaje de marcas se pueden distinguir las siguientes partes fundamentales:</p>
-    <ul>
+    <ul class="index">
         <li><a href="#punto4.1">4.1. Metadatos e instrucciones de proceso</a></li>
         <li><a href="#punto4.2">4.2. Codificación de caracteres. Caracteres especiales (escape)</a></li>
         <li><a href="#punto4.3">4.3. Etiquetas o marcas</a></li>
@@ -103,7 +104,7 @@
         <li><a href="#punto4.6">4.6. Comentarios</a></li>
     </ul>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4.1">
@@ -118,7 +119,7 @@
         <li>Palabras clave relacionadas con el contenido de la página (las cuales - pueden utilizarse por los buscadores).</li>
     </ul>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4.2">
@@ -129,7 +130,7 @@
 
     <img src="img/tabla_UTF8.png" alt="tabla_UTF8"><br>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4.3">
@@ -138,14 +139,14 @@
     <p>Existen dos tipos fundamentales de etiquetas: las de inicio (como por ejemplo: &lt;p>) y etiquetas de fin (como por ejemplo: &lt;/p>). Las etiquetas siempre afectan al texto (y otras directivas) que se encuentran dentro de su apertura y cierre.</p>
     <p>Existen etiquetas que no requieren de apertura y cierre. Para estas, se suele añadir el carácter "/" justo antes de “>”. Por ejemplo: &lt;br>/, &lt;img>/, &lt;meta>/, etc.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4.4">
     <h3>4.4. Elementos</h3>
     <p>Los elementos constan de la etiqueta de inicio, la etiqueta de fin y todo el contenido que se encuentra encerrado entre ambas. Es posible que un elemento HTML no tenga contenido o, lo que es lo mismo, que esté vacío. Por ejemplo: &lt;p>, &lt;/p>.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4.5">
@@ -153,14 +154,14 @@
     <p>Un atributo es un conjunto formado por un nombre y un valor que se localiza dentro de la etiqueta de inicio de un elemento. Este par (nombre-valor) indica alguna propiedad asociada al elemento en cuestión.</p>
     <p>Los atributos que se definen dentro de los elementos HTML se suelen incluir para alterar el comportamiento de los mismos.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto4.6">
     <h3>4.6. Comentarios</h3>
     <p>Los comentarios son bloques de texto que se pueden incluir en los documentos escritos con lenguajes de marcas y que son ignorados por los programas que visualizan el contenido de los mismos (por ejemplo un navegador). Los comentarios empiezan por la cadena “&lt;!--“ y terminan con la cadena “-->”. Los comentarios son muy útiles para los desarrolladores, ya que pueden indicar anotaciones y aclaraciones en el código que escriben sin que estas afecten al procesamiento del documento en cuestión.</p>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 <section id="punto5">
@@ -182,7 +183,7 @@
         <li>Por otro lado, un documento XML es considerado válido si cumple las limitaciones que le imponga una DTD o un esquema. Una DTD es un documento que está escrito en un lenguaje creado a partir de SGML y, gracias a este, se pueden especificar nombres de elementos concretos y asignarles los atributos que pueden aceptar y sus valores posibles, qué elementos se pueden anidar dentro de ellos y con qué asiduidad pueden (o tienen que) aparecer, etc.</li>
     </ol>
 
-    <a href="#indice">Volver al índice</a>
+    <a href="#indice" class="return">Volver al índice</a>
 </section>
 
 </body>

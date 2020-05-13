@@ -1,0 +1,29 @@
+p {
+    font-size: 20px;
+    color: brown;
+}
+
+/*
+Referencia por palabra clave (etiqueta)
+*/
+html, body {
+
+}
+
+p, a, h3{
+    font-size: 30px;
+    display: inline;
+    font-weight: normal;
+}
+
+/*
+Referencia por id, única, se pone con "#", mientras que class se puede reutilizar
+*/
+
+#unico {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.parrafo2{
+
+}

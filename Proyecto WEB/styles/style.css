@@ -26,18 +26,51 @@ Selecciona:
 <a>, pero solo cuando el puntero esté sobre el enlace.
  */
 
- html {
-    font-size: 10px; /* px quiere decir 'pixels': la base del tamaño de fuente es ahora de 1o pixeles*/
-  }
+ aside.aside ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
 
- h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 60px;
-    text-align: center;
-  }
+aside.aside li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 
-  p, li {
-    font-size: 16px;    
-    line-height: 2;
-    letter-spacing: 1px;
-  }
+aside.aside li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+aside.aside li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+nav.main ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav.main li {
+  float: left;
+}
+
+nav.main li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav.main li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
