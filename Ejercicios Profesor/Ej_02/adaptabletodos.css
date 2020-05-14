@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: red;
+    font-size: 20px;
+}
+
+@media(max-width: 1024px){
+    body{
+        background-color: grey;
+        font-size:1em;
+    }
+
+@media(max-width: 768px){
+    body{
+        background-color: orange;
+        font-size:1em;
+    }
+
+@media(max-width: 480px){
+    body{
+        background-color: green;
+        font-size:1em;
+    }
+
+@media(max-width: 320px){
+    body{
+        background-color: violet;
+        font-size:1em;
+    }
+
+}
