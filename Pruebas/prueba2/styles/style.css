@@ -1,0 +1,191 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ------------------- CABECERA CON EL TÍTULO DE LA WEB Y EL LOGO -------------------- */
+
+#cabeceralogo{
+    width:69%; /* El ancho de la caja ocupará el 69% de nuestra ventana */
+    height:150px; /* Altura de la caja */
+    padding:0% 2%; /* Agregamos el margen superior y lateral */
+    background-color: #0f76a0;
+}
+
+#cabeceralogo > div{
+    max-width: 960px;
+    margin: 0px auto;
+    padding-top: 45px;
+}
+
+#cabeceralogo h1{
+    font: bold 54px Arial, sans-serif;
+    color: #FFFFFF;
+}
+
+/* -------------- MENÚ HORIZONTAL ----------------------- */
+
+#menuprincipal{
+    width:69%;/* Aplicamos el mismo porcentaje de la cabecera para que se iguale */
+    height: 50px;/* Le damos una altura fija en px */
+    padding: 0% 2%;/* Le damos el mismo padding que la cabecera para que no se descoloque */
+    background-color: #9FC8D9;
+    border-top: 1px solid #094660;/* Aplicamos un borde de 1 px sólido para que dibuje una línea */
+    border-bottom: 1px solid #094660;/* Realizamos lo mismo para que dibuje una línea inferior de 1px */
+}
+
+#menuprincipal > div{
+    max-width: 960px;/*aplicamos los mismos pixeles que la cabeceralogo*/
+    margin: 0px auto;/*aplicamos los mismos parámetros que la cabeceralogo*/
+}
+
+#menuprincipal li{
+    display: inline-block;/*ponemos la lista en línea y la bloqueamos*/
+    height: 35px;
+    padding: 15px 10px 0px 10px;/*Centramos con estos parámetros los elementos de la lista*/
+    margin-right: 5px;
+}
+
+#menuprincipal li:hover{
+    background-color: #6FACC6;
+}
+
+#menuprincipal a{
+    font: bold 18px Arial, sans-serif;
+    color: #333333;
+    text-decoration: none;
+}
+
+/* -------------------- MAIN, CAJA QUE RECOGERÁ LOS DIFERENTES ARTÍCULOS --------------------*/
+
+main > div{
+    max-width: 960px;
+    margin: 0px auto;
+}
+
+/* ---------------- ARTÍCULOS -------------------*/
+
+#articulosprincipales {
+    float: left;
+    width: 65%;/*le damos el tamaño del 65% de nuestra pantalla, algo más estrecho que el 69% de la cabecera*/
+    padding-top: 30px;/*Le damos un "margen interior" a la caja de artículos*/
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+/* --------------- BARRA VERTICAL LATERAL ---------------------- */
+
+#infoadicional{
+    float: right;
+    width: 29%;
+    padding: 2%;
+    background-color: #e7f1f5;
+    border-radius: 10px;
+}
+
+#infoadicional h1{
+    font: bold 18px Arial, sans-serif;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.recuperar{
+    clear: both;
+}
+
+/* ------------ RECUADRO DE LA FECHA DE LOS ARTÍCULOS --------------- */
+
+article{
+    position: relative;
+    padding: 0px 40px 20px 40px;
+}
+
+article time{
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -70px;
+    width: 80px;
+    padding: 15px 5px;
+    background-color: #094660;
+    box-shadow: 3px 3px 5px rgba(100, 100, 100, 0.7);
+    border-radius: 5px;
+}
+
+.numerodia{
+    font: 12px Verdana, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.nombredia{
+    font: 12px Verdana, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* ----------------INFORMACIÓN ARTÍCULO ---------------------*/
+
+article h1{
+    margin-bottom: 5px;
+    font: bold 30px Georgia, sans-serif;
+}
+
+article p{
+    font: 18px Georgia, sans-serif;
+}
+
+/* ----------------- IMAGEN ----------------------- */
+
+/* CAJA DE LA IMAGEN */
+
+figure{
+    margin: 10px 0px;
+}
+
+/* IMAGEN */
+
+figure img{
+    max-width: 98%;
+    padding: 1%;
+    border: 1px solid;
+}
+
+/* -------------- FOOTER ----------------*/
+
+/* CAJA DEL FOOTER */
+
+#pielogo{
+    width: 69%; /*Repetimos los porcentajes de la cabecera para que cuadre*/
+    padding: 2%;
+    background-color: #0f76a0;
+}
+
+/* CAJA INTERIOR DEL FOOTER */
+
+#pielogo > div{
+    max-width: 690px;
+    margin: 0px auto;
+    background-color: #9fc8d9;
+    border-radius: 10px;
+}
+
+.seccionpie{
+    float: left;
+    width: 27.33%;
+    padding: 3%;
+}
+
+.seccionpie h1{
+    font: bold 20px Arial, sans-serif;
+}
+
+.seccionpie p{
+    margin-top: 5px;
+}
+
+.seccionpie a{
+    font: bold 16px Arial, sans-serif;
+    color: #666666;
+    text-decoration: none;
+}
