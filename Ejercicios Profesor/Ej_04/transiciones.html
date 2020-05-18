@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformaciones</title>
+    <style>
+       *{
+           font-size: 10px;
+           padding: 0;
+           margin: 0;
+           box-sizing: border-box;
+       }
+
+       .test{
+           text-align: center;
+           margin: 30px;
+           font-size: 2rem;
+           border: 1px solid;
+           /*transform: rotate(20deg);*/
+           /*transform:scale(-1, 1);*/
+           /*transition-property: transform color;
+           transition-duration: 2s;
+           transition-timing-function: cubic-bezier();
+           transition-delay: 0s;*/
+           /*todos juntos*/
+           transition: transform 1s ease-in-out 0s; 
+           
+       }
+
+       .test:hover{
+        /*transform: rotate(20deg) skew(30deg);*/
+        transform:translate(10px, 50px);
+        color: brown;
+        
+       }
+    </style>
+</head>
+<body>
+    <div class="test">
+        Testeando con transformaciones.
+    </div>
+</body>
+</html>

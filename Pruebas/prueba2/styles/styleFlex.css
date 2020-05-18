@@ -6,15 +6,18 @@
 /* ------------------- CABECERA CON EL TÍTULO DE LA WEB Y EL LOGO -------------------- */
 
 #cabeceralogo{
-    width:69%; /* El ancho de la caja ocupará el 69% de nuestra ventana */
+    display: flex;
+    justify-content: center;
+    width:96%; /* El ancho de la caja ocupará el 69% de nuestra ventana */
     height:150px; /* Altura de la caja */
     padding:0% 2%; /* Agregamos el margen superior y lateral */
     background-color: #0f76a0;
 }
 
 #cabeceralogo > div{
+    flex: 1;
     max-width: 960px;
-    margin: 0px auto;
+    /*margin: 0px auto;*/
     padding-top: 45px;
 }
 
@@ -26,7 +29,9 @@
 /* -------------- MENÚ HORIZONTAL ----------------------- */
 
 #menuprincipal{
-    width:69%;/* Aplicamos el mismo porcentaje de la cabecera para que se iguale */
+    display: flex;
+    justify-content: center;
+    width:96%;/* Aplicamos el mismo porcentaje de la cabecera para que se iguale */
     height: 50px;/* Le damos una altura fija en px */
     padding: 0% 2%;/* Le damos el mismo padding que la cabecera para que no se descoloque */
     background-color: #9FC8D9;
@@ -35,8 +40,9 @@
 }
 
 #menuprincipal > div{
+    flex: 1;
     max-width: 960px;/*aplicamos los mismos pixeles que la cabeceralogo*/
-    margin: 0px auto;/*aplicamos los mismos parámetros que la cabeceralogo*/
+    /*margin: 0px auto;/*aplicamos los mismos parámetros que la cabeceralogo*/
 }
 
 #menuprincipal li{
@@ -56,18 +62,42 @@
     text-decoration: none;
 }
 
+/*-------------------- MENÚ OCULTO PARA BAJAS RESOLUCIONES ---------------------*/
+
+#menuicono{
+    display: none;
+    width: 95%;
+    height:38px;
+    padding: 12px 2% 0px 3%;
+    background-color: #9FC8D9;
+    border-top: 1px solid #094660;
+    border-bottom: 1px solid #094660;
+}
+
 /* -------------------- MAIN, CAJA QUE RECOGERÁ LOS DIFERENTES ARTÍCULOS --------------------*/
 
+main {
+    display: flex;
+    justify-content: center;
+    width: 96%;
+    padding: 2%;
+    background-image: url("fondo.png");
+}
+
 main > div{
+    display: flex;
+    flex: 1;
     max-width: 960px;
-    margin: 0px auto;
+    /*margin: 0px auto;*/
 }
 
 /* ---------------- ARTÍCULOS -------------------*/
 
 #articulosprincipales {
-    float: left;
-    width: 65%;/*le damos el tamaño del 65% de nuestra pantalla, algo más estrecho que el 69% de la cabecera*/
+    flex: 1;
+    /*float: left;*/
+    margin-right: 20px;
+    /*width: 65%;/*le damos el tamaño del 65% de nuestra pantalla, algo más estrecho que el 69% de la cabecera*/
     padding-top: 30px;/*Le damos un "margen interior" a la caja de artículos*/
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -76,8 +106,10 @@ main > div{
 /* --------------- BARRA VERTICAL LATERAL ---------------------- */
 
 #infoadicional{
-    float: right;
-    width: 29%;
+    flex: 1;
+    max-width: 280px;
+    /*float: right;*/
+    /*width: 29%;*/
     padding: 2%;
     background-color: #e7f1f5;
     border-radius: 10px;
@@ -89,9 +121,9 @@ main > div{
     margin-bottom: 15px;
 }
 
-.recuperar{
+/*.recuperar{
     clear: both;
-}
+}*/
 
 /* ------------ RECUADRO DE LA FECHA DE LOS ARTÍCULOS --------------- */
 
@@ -113,7 +145,7 @@ article time{
 }
 
 .numerodia{
-    font: 12px Verdana, sans-serif;
+    font: bold 36px Verdana, sans-serif;
     color: #FFFFFF;
     text-align: center;
 }
@@ -156,7 +188,9 @@ figure img{
 /* CAJA DEL FOOTER */
 
 #pielogo{
-    width: 69%; /*Repetimos los porcentajes de la cabecera para que cuadre*/
+    display: flex;
+    justify-content: center;
+    width: 96%; /*Repetimos los porcentajes de la cabecera para que cuadre*/
     padding: 2%;
     background-color: #0f76a0;
 }
@@ -164,15 +198,18 @@ figure img{
 /* CAJA INTERIOR DEL FOOTER */
 
 #pielogo > div{
+    display: flex;
+    flex: 1;
     max-width: 690px;
-    margin: 0px auto;
+    /*margin: 0px auto;*/
     background-color: #9fc8d9;
     border-radius: 10px;
 }
 
 .seccionpie{
-    float: left;
-    width: 27.33%;
+    flex: 1;
+    /*float: left;*/
+    /*width: 27.33%;*/
     padding: 3%;
 }
 

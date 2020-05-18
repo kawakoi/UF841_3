@@ -1,0 +1,88 @@
+/* ----------------------- Resolución de 1120px ----------------------*/
+
+@media (max-width: 1120px){
+    article time {
+        position: static;/*cambiamos el modo "absolute" por "static" (modo por defecto) para que se muestre debajo del <h1>*/
+        width: 100%;
+        padding: 0px;
+        margin-bottom: 10px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 0px;
+        border-radius: 0px;
+    }
+    
+    .numerodia{
+        display: inline-block;
+        font: bold 14px Verdana, sans-serif;
+        color: #999999;
+        padding-right: 5px;
+    }
+
+    .nombredia{
+        display: inline-block;/* ponemos los datos en línea para que se muestren contiguos*/
+        font: bold 14px Verdana, sans-serif;
+        color: #999999;
+    }
+
+    article h1{
+        margin-bottom: 0px;
+    }
+}
+
+/* ------------------- Resolución de 720px --------------------*/
+
+@media (max-width: 720px) {
+    main > div {
+    display: block;
+    }
+
+    #articulosprincipales {
+    width: 100%; /* Pasamos el valor de 65% en 100% para ocupar la totalidad de la pantalla y así mover el aside debajo*/
+    margin-right: 0px;
+    }
+
+    #infoadicional {
+    width: 90%;
+    max-width: 100%;
+    padding: 5%;/*Le damos más margen interior*/
+    margin-top: 20px;
+    }
+}
+
+/* --------------------- Resolución de 480px -----------------------*/
+
+@media (max-width: 480px) {
+#cabeceralogo > div {
+    text-align: center;
+    }
+
+#cabeceralogo h1 {
+    font: bold 46px Arial, sans-serif;
+    }
+
+#menuprincipal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    }
+
+#menuprincipal li {
+    display: block;/*Ponemos la lista que se muestre en bloque y no inline como estaba definida en mayores resoluciones*/
+    margin-right: 0px;
+    text-align: center;/*Centramos los textos*/
+    }
+
+#menuicono{
+    display: block;
+    }
+
+#pielogo > div {
+    display: block;
+    }
+
+.seccionpie {
+    width: 94%;/*Ampliamos el ancho de la sección para forzar al navegador a que se muestren las secciones por línea*/
+    text-align: center;
+    }
+}
