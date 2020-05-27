@@ -1,0 +1,184 @@
+/*En primer lugar, formateamos algunos de los componentes más básicos como son el padding y el margin*/
+
+*{
+    padding:0;
+    margin:0;
+    /*Con esto quitaremos los bordes que los navegadores dejan por defecto en las cajas y evitaremos comportamientos indeseados*/
+    box-sizing:border-box;
+}
+
+/* ----------------- FUENTE ----------------------- */
+
+/*Estas líneas añadirán la fuente local que dará estilo a las letras del header*/
+@font-face{
+    font-family:edosz;
+    src: url(../font/edosz.ttf);
+}
+
+/* --------------------------- HEADER --------------------- */
+
+header{
+    display:flex;/*Le damos un comportamiento flexible a las cajas*/
+    justify-content: center;
+    width:96%;
+    height:210px;
+    padding:0% 2%;
+}
+
+#header > div{
+    display: inline-block;/*Colocamos los componentes de la cabecera en línea*/
+    max-width: 960px;
+}
+
+header h1{
+    font: normal 180px edosz;/*Con ésta línea le decimos la fuente local que usará*/
+}
+
+#logo img{/*Le damos un tamaño a la imagen de la cabecera*/
+    max-width:150px;
+    min-width: 100px;
+}
+
+
+
+/* -------------- MENÚ HORIZONTAL ----------------------- */
+
+#mainMenu{
+    display: flex;/*Una vez más, indicamos que el contenido sea flexible*/
+    justify-content: center;/*Colocamos en el centro los componentes*/
+    width:100%;
+    height: 50px;
+    padding: 0% 2%;
+    background-color: #555;
+
+}
+
+#mainMenu li{
+    display: inline-block;
+    height: 35px;
+    padding: 15px 10px 0px 10px;
+    margin-right: 5px;
+}
+
+#mainMenu li:hover{/*con esta línea cambiamos el color de los botones cuando pasamos el ratón por encima*/
+    background-color: #6FACC6;
+}
+
+#mainMenu a{/*Le damos estilos a los enlaces del menú horizontal*/
+    font: bold 18px Arial, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ---------------------- FORMULARIO -------------------------- */
+
+
+/*INFORMACIÓN*/
+
+.informacion{/* Esta caja contendrá toda la información que se quiera añadir*/
+    width: 1000px;/*decidimos la anchura*/
+    height: 550px;/*decidimos la altura*/
+    margin: 50px auto;
+    display: flex;/*Sus contenidos serán flexibles*/
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 38%;
+    display: flex;/*contenido flexible*/
+    flex-direction: column;/*Ponemos los componentes en modo columna*/
+    align-items: center;/*Alineamos en el centro*/
+    justify-content: center;
+    background-color: #59b3dd;
+    background-image: linear-gradient(#7cbedd, #afd7e9, #84c0db)
+}
+
+.informacion img.puni{/*aplicamos el tamaño de la imagen del formulario 1*/
+    height:210px;
+    padding:0% 23%;
+}
+
+.informacion img.article{/*aplicamos el tamaño de la imagen del formulario 2*/
+    height:150px;
+    padding:0% 20%;
+}
+
+.informacion h2{/*Le damos estilo al h2*/
+    font-size: 35px;
+    text-align: center;/*Colocamos el h2 en el centro*/
+}
+
+
+.informacion p i{/*Ajustamos el tamaño de los iconos usados en el formulario 1*/
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+/* ----------------- FORMULARIO ------------------------*/
+
+form.formulario{
+    width: 62%;/*ajustamos la anchura que ocupará el contenido*/
+    padding: 30px 40px;
+}
+
+form.formulario h2{/*Añadimos los estilos a los h2 utilizados en el contenido del formulario*/
+	font-size: 25px;
+	font-weight: 600;
+	color: #303030;
+	margin-bottom: 30px;
+}
+
+
+form.formulario label{/*Todas las etiquetas del formulario llevarán el mismo tamaño*/
+    font-weight: 600;
+}
+
+
+form.formulario input#usuario,
+form.formulario input#pass,
+form.formulario input#archivo,
+form.formulario input#enviar,
+form.formulario input#price,
+form.formulario select#category,
+form.formulario textarea{/*Esta disección servirá para dar estilo "SOLO" a los componentes que queramos del formulario, así podremos cambiar los estilos por separado*/
+    width: 100%;
+    padding: 8px 0px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #D1D1D1;
+    font-family: 'Open sans';
+	color: #5A5A5A;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+form.formulario input#tax{/*Para los impuestos del formulario 2 necesité separar las clases para diferenciar estilos*/
+    margin-top: 15px;
+}
+
+form.formulario input#enviar{/*Estas líneas dan un estilo "extra" al botón "enviar" para que no se junte con las líneas superiores*/
+    margin-top: 20px;
+}
+
+form.formulario input#condiciones{/*Las condiciones le damos un estilo a parte para que la casilla de selección aparezca al lado del texto*/
+    padding: 8px 0px 5px;
+    font-family: 'Open sans';
+	font-size: 14px;
+}
+
+/* ------------------------ FOOTER --------------------- */
+
+#footer{/*Estas líneas le dan estilo al footer*/
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #f9f9f9 0px, #e9e9e9 100%);
+    border: 1px solid #c9c9c9;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align-last: center;
+    color: #666;
+}

@@ -1,0 +1,58 @@
+<!-- En el siguiente documento html se indican en comentarios los pasos que debes completar. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - arrays</title>
+	<meta name="author" content="francesc ricart"/>
+</head>
+<body>
+
+<script>
+	var amigos  = ["Pedro","Maria","Joan","Pili"];
+	
+	// 1- queremos que escriba "mis amigos son maria y joan. rellena los huecos."
+	document.write("mis amigos son "+ "<b>" + amigos[1] + "</b>" + "  y <b>" + amigos[2]+"</b><br>");
+
+	// 2- ¿dónde está el fallo?
+	//var enemigos = ["scipion" + "scorpio" + "black"];
+
+	var enemigos = ["Scipion" , "Scorpio" , "Black"];
+
+	// 3- escribe en el documento web "scorpio es peor que black" de modo que scorpio esté en negrita y la letra sea de color rojo.
+
+	document.write("<b>" + enemigos[1] + "</b> es peor que <b>"+ enemigos[2]+"</b><br>");
+
+
+	// 4- escribe una instrucción que devuelva la longitud del array amigos sea cual sea el número de datos almacenados en su interior.
+
+	document.write('El array <b>"amigos"</b> tiene ' + amigos.length + " elementos<br>");
+
+	// 5- "aitana" es también tu amiga. Escribe una instrucción que la añada al final de la lista amigos 
+
+	amigos.push("Aitana");
+	document.write("Ahora, a parte de <b>" + amigos[0] + ", " + amigos[1] + ", " + amigos[2] + "</b> y <b>" + amigos[3] + "</b> también he conocido a <b>" + amigos[4] + "</b><br>");
+	
+	// 6 - "pedro" ha cambiado de nombre. ahora se llama "nacho". actualiza con una instrucción tu lista de amigos
+
+	amigos[0] = "Nacho";
+	document.write('Ahora <b>"Pedro"</b> se llama <b>' + amigos[0] + "</b><br>");
+
+	// 7 - "tor" es ahora tu enemigo. añádelo con una instruccion al final de tu lista de enemigos.
+
+	enemigos.push("Tor");
+	length = enemigos.length;
+
+	lista = "<ul>";
+	for (i = 0; i < length; i++) {
+  		lista += "<li>" + enemigos[i] + "</li>";	
+		}
+	lista += "</ul>";
+	
+	document.write("Lista actualizada de enemigos:" + lista + "<br>");
+
+</script>
+
+
+</body>
+</html>

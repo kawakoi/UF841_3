@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <button onclick = "alert('me has clickado')"">Clickame</button>
+    <button onmousover = "alert('me has clickado')"">Clickame</button>
+
+    <button id="bt">Clickame</button>
+    <input type="text" id = "text">
+
+    <script>
+        var myBoton = document.getElementById("bt");
+        myBoton.innerHTML = "CAMBIO";
+
+        var pa = document.getElementById("pa");
+        myBoton.addEventListener("click", saludo);
+        this.innerHTML = "JAJAJA";
+        myBoton.innerHTML = "JAJAJA";
+        document.body.innerHTML = "JAJAJA";
+
+        text.value = "hola";
+        var text = document.getElementById("text");
+
+        myBoton.addEvenListener("click", function(){
+            pa.innerHTML = text.value;
+            });
+
+
+        /*
+        function saludo(){
+            alert("hola");
+        }
+        */
+        console.log(myBoton.innerHTML);
+    </script>
+
+
+</body>
+</html>

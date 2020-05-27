@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--16- Escriure un programa que escrigui en pantalla els divisors comuns de dos nombres donats-->
+
+    <script>
+
+        var numero1 = prompt("Por favor, escribe un número");
+        var numero2 = prompt("Por favor, escribe otro número");
+        var menor;
+        var i;
+
+        if (numero1 < numero2){
+            menor = numero1;
+        }else{
+            menor = numero2;
+        }
+
+        for (i=2; i < menor / 2; i++) {
+            if (numero1 % i === 0 && numero2 % i === 0) {
+            document.write(i,", ");
+        }
+}
+
+    </script>
+</body>
+</html>

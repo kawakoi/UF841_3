@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 9- Escriu un programa que demani una frase i escrigui quantes vegades apareix la lletra a -->
+
+    <script>
+
+    /*
+    Recogemos un texto que introduce el usuario.
+    Creamos una variable para ir contando las veces que encontramos una vocal
+    recorremos el texto carácter a carácter hasta el final
+    si el carácter es igual a "a" o "e" o  " i"  o "o"  o  "u"  incremento la variable contador, sino estoy al final, 
+    avanzo al siguiente carácter y si llego al final se termina el recorrido (bucle for) y impreimo en pantalla el valor de la variable contador
+    */
+
+    var a = 0;
+        vectorLetras = consultarTexto();
+        
+        function consultarTexto(){
+            var pideTexto = window.prompt("escribe un texto cualquiera");
+            var textoRoto = pideTexto.toLowerCase().split("");
+            return textoRoto;
+        }        
+        
+        for(k=0;k < vectorLetras.length;k++){
+            
+            switch(vectorLetras[k]){
+                case "a":
+                case "à":
+                case "á":
+                    a++;
+            }
+        }
+        
+        totalVocales = a;
+        
+        document.write("Hay " +  a + " vocales 'a'<br>");
+        document.write("Total de carácteres escritos: " + vectorLetras.length);
+        document.write("<br>");
+        document.write("Texto original: <b>" + vectorLetras.join("") + "</b>");
+
+    </script>
+</body>
+</html>

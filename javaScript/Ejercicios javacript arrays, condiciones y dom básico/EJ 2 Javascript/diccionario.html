@@ -1,0 +1,182 @@
+<!-- DICCIONARIO SENCILLO 
+Se desea programar un diccionario que pregunte al usuario una palabra y a continuación la devuelva traducida.
+
+Soluciónalo de dos formas distintas:
+ 1-recorriendo un array con un for.
+ 2- mediante if else.
+
+Como idea puedes usar los siguientes arreglos:
+var castellano = ["melón","naranja","plátano","uvas","manzana"];
+var catala = ["meló","taronja","plàtan","raïm","poma"];
+
+**********
+Pistas:
+
+SOLUCIÓN MEDIANTE UN FOR
+Para solucionar el diccionario mediante el for partiremos la premisa de que disponemos de un array con todas las posibles palabras en un array de nombre castellano.
+
+Y otro array con todas las traducciones en otro idioma. Por ejemplo el catalán.
+
+La idea es localizar la posición dentro del array (vector, lista) en que se encuentra una palabra para escribir la misma posición pareja de la lista en catalán.
+
+De este modo podemos traducir de un idioma a a otro.
+
+SOLUCIÓN DEL EJERCICIO MEDIANTE UN IF
+En el caso del if evaluaremos caso por caso.
+
+Si se dal a circunstancia de no encontrar la palabra, en cualquier otro caso devolveremos
+una respuesta diciendo que el diccionario no dispone de la traducción.
+
+*********
+BONUS:
+cambia la sentencia if else por un switch case
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="traduccion"></p>
+
+    <script>
+
+        var palabra = prompt("Por favor, una palabra para traducir:", "");
+
+        var castellano = ["melón","naranja","plátano","uvas","manzana"];
+        var catala = ["meló","taronja","plàtan","raïm","poma"];
+
+        traduccion = "";//declara la variable traducción i la inicializa en blanco.
+
+        //miramos si tenemos la traducción y actualizamos la variable traducción.
+        if (palabra === "melón"){
+            traduccion = catala[0];
+        }else if (palabra === "naranja"){
+            traduccion = catala[1];
+        }else if (palabra === "plátano"){
+            traduccion = catala[2];
+        }else if (palabra === "uvas"){
+            traduccion = catala[3];
+        }else if (palabra === "manzana"){
+            traduccion = catala[4];
+        }else if (palabra === ""){
+            traduccion = "Debes introducir una palabra";
+        }else{
+            traduccion = "El diccionario no dispone de la traducción a la palabra " + palabra;
+        }
+
+        //despuúes de evaluar los posibles casos enseñamos el valor de la
+        //variable traducción var palabra = prompt("Por favor, una palabra para traducir:", "");
+        document.getElementById("traduccion").innerHTML = traduccion;
+
+//----------------------- SOLUCIONES PROFESOR ------------------------------
+/*
+    var palabra = prompt("Palabra: ");
+
+    var castellano = ["melón", "naranja", "plátano", "uvas", "manzana"];
+    var catala = ["meló", "taronja", "plàtan", "raïm", "poma"];
+
+    var traduccion = ""; //declara la variable traducción i la inicializa en
+
+    //blanco.
+    //miramos si tenemos la traducción y actualizamos la variable traducción.
+
+    if (palabra === castellano[0]) {
+        traduccion = catala[0];
+    } else if (palabra === castellano[1]) {
+        traduccion = catala[1];
+    } else if (palabra === castellano[1]) {
+        traduccion = catala[2];
+    } else if (palabra === castellano[1]) {
+        traduccion = catala[3];
+    } else if (palabra === castellano[1]) {
+        traduccion = catala[4];
+    } else if (palabra === "") {
+        traduccion = "Escribe una palabra"
+    } else {
+        traduccion = "La palabra no está en el diccionario"
+    }
+
+    //despuúes de evaluar los posibles casos enseñamos el valor de la
+    //variable traducción var palabra = prompt("Por favor, una palabra para traducir:", "");
+
+    document.getElementById("traduccion").innerHTML = traduccion;
+*/
+//---------------------- SOLUCIÓN CON IF ELSE -----------------------
+/*
+    pregunta = window.prompt("que palabra quieres traducir");
+    // en este caso lo haremos mediante un if else if. poco práctico pero académico.
+
+    if(pregunta == "manzana"){
+	    document.write("poma");
+    }else if(pregunta == "pera"){
+	    document.write("pera");
+    }else if(pregunta == "naranja"){
+	    document.write("taronja");
+    }else if(pregunta == "cereza"){
+	    document.write("cirera");
+    }else{
+	    document.write("lo sentimos no disponemos de esta traducción");
+    }
+
+    //Fijate que en este caso no necesitaríamos el array, pero si el diccionario fuera muy largo seria muy tedioso tener que escribir cada comparación con su if correspondiente.
+*/
+//----------------------- SOLUCIÓN CON SWITCH CASE --------------------------
+/*
+    //Lo mísmo para el switch case:
+    pregunta = window.prompt("que palabra quieres traducir");
+
+    switch(pregunta){
+	    case "manzana":
+		    document.write("poma");
+		    break;
+	    case "pera":
+		    document.write("pera");
+		    break;
+	    case "naranja":
+		    document.write("taronja");
+		    break;
+	    case  "cereza":
+		    document.write("cirera");
+		    break
+	    default:
+		    document.write("lo sentimos no disponemos de esta traducción")	
+    }
+*/
+//-------------------------- SOLUCIÓN CON BUCLE -----------------------------
+/*
+    //Por último, una de las possibles formas de resolverlo usando un bucle.
+
+    var palabra = prompt("Palabra: ");
+    var traduccion = "";
+
+	var castellano = ["melón", "naranja", "plátano", "uvas", "manzana"];
+	var catala = ["meló", "taronja", "plàtan", "raïm", "poma"];
+	
+	if (palabra === "") {
+		traduccion = "Escribe una palabra";
+	} else {
+		for (var i = 0; i < castellano.length; i++) {
+			if (palabra === castellano[i]) {
+				traduccion = catala[i];
+				break;
+			}
+		}
+		if (traduccion === "") {
+			traduccion = "La palabra "+palabra+" no está en el diccionario";
+		}
+        console.log(traduccion);
+	}
+	var txtTraduccion = document.getElementById("traduccion");
+	txtTraduccion.innerHTML = traduccion;
+*/
+    </script>
+
+</body>
+</html>
+
+

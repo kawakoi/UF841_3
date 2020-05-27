@@ -1,0 +1,78 @@
+<!--
+    Ejercicis bàsics Javascript
+
+1- Escriu un programa d'una sola línia que faci que aparegui a la pantalla un alert
+que digui "Hello World".
+
+2- Escriu un programa d'una sola línia que escrigui a la pantalla un text que digui
+"Hello World" (document.write).
+
+3- Escriu un programa d'una sola línia que escrigui a la pantalla el resultat de
+sumar 3 + 5.
+
+4- Escriu un programa de dues línies que demani el nom de l'usuari amb un
+prompt i escriviu un text que digui "Hola nom_usuari"
+
+5- Escriu un programa de tres línies que demani un nombre, demani un altre
+número i escrigui el resultat de sumar aquests dos nombres.
+
+6- Escriu un programa que demani dos nombres i escriviu a la pantalla com és el
+més gran.
+
+7- Escriu un programa que demani 3 nombres i escriviu a la pantalla el més gran
+dels tres.
+
+8- Escriu un programa que demani un nombre i digui si és divisible per 2
+
+9- Escriu un programa que demani una frase i escrigui quantes vegades apareix la
+lletra a
+
+10- Escriu un programa que demani una frase i escrigui les vocals que apareixen
+
+11- Escriu un programa que demani una frase i escrigui quantes de les lletres que
+té són vocals
+
+12- Escriu un programa que demani una frase i escrigui quantes vegades apareixen
+cadascuna de les vocals
+
+13- Escriu un programa que demani un nombre i ens digui si és divisible per 2, 3, 5
+o 7 (només cal comprovar si ho és per un dels quatre)
+
+14- Afegir a l'exercici anterior que ens digui per qual dels quatre és divisible (cal dir
+tots aquells pels quals és divisible)
+
+15- Escriure un programa que escrigui en pantalla els divisors d'un nombre donat
+
+16- Escriure un programa que escrigui en pantalla els divisors comuns de dos
+nombres donats
+
+17- Escriure un programa que ens digui si un nombre donat és primer (
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <p id="suma"></p>
+    <script>
+
+var x = prompt("Por favor, introduce un número:", "");
+var y = prompt("Introduce otro número para sumar:", "");
+
+if( ( x != "" ) && ( y != ""))  {
+    var z = x + y;
+    document.getElementById("suma").innerHTML =
+    "El resultado de sumar" + x + " +" + y + " es igual a" + z;
+}
+    </script>
+
+
+    
+</body>
+</html>

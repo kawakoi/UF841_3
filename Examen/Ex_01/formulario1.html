@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <!-- Con este script vinculamos las fuentes necesarias para añadir los iconos de Font Awesome -->
+    <script src="https://kit.fontawesome.com/8b299e0b08.js" crossorigin="anonymous"></script>
+    <title>formulario 1</title>
+</head>
+
+<body>
+
+<!-------------------------- Header ----------------------------------->
+<!-- Se podría hacer mediante includes, al igual que el menú horizontal y el footer, pero en esta ocasión así bastará-->
+
+
+<!--En primer lugar mostraré el logo de la tienda que formará parte del header-->
+
+    <header id="header">
+        <div id="logo">
+            <img src="img/Logo.png" alt="Kawakoi Shop">
+        </div>
+
+<!-- Mediante CSS haré que se muestren en línea formando el nombre de la web en conjunto con el logo-->
+
+        <div>
+            <h1>awakoi</h1>
+        </div>
+
+    </header>
+
+<!----------------------------------- Menú horizontal ----------------------------------->
+
+    <nav id="mainMenu">
+        <div>
+          <ul>
+            <li><a href="formulario1.html">Formulario 1</a></li>
+            <li><a href="formulario2.html">Formulario 2</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!----------------------Información adicional de contacto------------------->
+
+      <main class="informacion">
+          
+      <section class="info">
+        <div>
+            <img src="img/puny.png" alt="Información de la Web" class="puni">
+            <h2>INFORMACION DE CONTACTO</h2>
+        </div>
+        <div class="contacto">
+            <p><i class="fas fa-envelope"></i> kawakoi@hotmail.com</p>
+            <p><i class="fas fa-mobile-alt"></i> +34 640 34 66 64</p>
+        </div>
+      </section>
+
+      <!---------------------Formulario de contacto------------------------------>
+      
+      <form action="POST" class="formulario">
+        <h2>Formulario de Contacto</h2>
+        <div class="usuario">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario">
+
+            <label for="pass">Contraseña</label>
+            <input type="text" id="pass">
+
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion"></textarea>
+
+            <label for="archivo">Sube un archivo:</label>
+            <input type="file" id="archivo">
+
+            <input type="checkbox" id="condiciones">
+            <label for="condiciones"> Declaro que quiero ser investigado por los illuminati y ser expuesto a experimentos conspiranóicos</label>
+
+            <input type="button" value="Enviar Mensaje" id="enviar">
+        </div>
+    </form>
+</main>
+
+<!------------------------- Footer ------------------------------------------>
+
+      <footer id="footer">
+            <p>Diario de desarrollo Web &copy; 2019;</p>
+      </footer>
+</body>
+</html>

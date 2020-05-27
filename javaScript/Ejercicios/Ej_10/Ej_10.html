@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--12- Escriu un programa que demani una frase i escrigui quantes vegades apareixen cadascuna de les vocals-->
+
+    <script>
+        
+    /*
+    var frase = prompt("Por favor, introduce una frase", "Mordor es oscuro");
+    var numVocales = 0;
+    var longitudTexto = frase.length;//Accedemos a la propiedad "length" para recorrer la frase
+
+    /*Tenemos que guardar tantas variables como vocales hay*/
+
+    /*
+    for (var i = 0; i < longitudTexto; i++) {
+        var letraActual = frase.substr(i,1);
+        if(letraActual === "a"){
+        numVocalesA++;
+        }else if(letraActual === "e"){
+            numVocalesE++;
+        }else if(letraActual === "i"){
+            numVocalesI++;
+        }else if(letraActual === "o"){
+            numVocalesO++;
+        }else (letraActual === "u"){
+            numVocalesU++;
+        }
+    }
+    */
+
+        var a = e = i = o = u = blancos = 0;
+        vectorLetras = consultarTexto();
+        
+        function consultarTexto(){
+            var pideTexto = window.prompt("escribe un texto cualquiera");
+            var textoRoto = pideTexto.toLowerCase().split("");
+            return textoRoto;
+        }        
+        
+        for(k=0;k < vectorLetras.length;k++){
+            
+            switch(vectorLetras[k]){
+                case "a":
+                case "à":
+                case "á":
+                    a++;
+                    break;
+                case "e":
+                case "é":
+                case "è":
+                    e++;
+                    break;
+                case "i":
+                case "í":
+                case "ì":
+                    i++;
+                    break;
+                case "o":
+                case "ó":
+                case "ò":
+                    o++;
+                    break;
+                case "u":
+                case "ú":
+                case "ù":
+                    u++;
+                    break;
+                case " ":
+                    blancos++;
+            }
+        }
+        
+        totalVocales = a+e+i+o+u;
+        
+        document.write("Hay " +  a + " vocales 'a'<br>");
+        document.write("Hay " +  e + " vocales 'e'<br>");
+        document.write("Hay " +  i + " vocales 'i'<br>");
+        document.write("Hay " +  o + " vocales 'o'<br>");
+        document.write("Hay " +  u + " vocales 'u'<br>");
+        
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--10- Escriu un programa que demani una frase i escrigui les vocals que apareixen-->
+
+    <script>
+
+    /*
+    Recogemos un texto que introduce el usuario.
+    Creamos una variable para ir contando las veces que encontramos una vocal
+    recorremos el texto carácter a carácter hasta el final
+    si el carácter es igual a "a" o "e" o  " i"  o "o"  o  "u"  incremento la variable contador, sino estoy al final,  avanzo al siguiente carácter y si llego al final se termina el recorrido (bucle for) y impreimo en pantalla el valor de la variable contador
+    */
+
+    var frase = prompt("Por favor, introduce una frase", "Mordor es oscuro");
+
+    var longitudTexto = frase.length;//Accedemos a la propiedad "length" para recorrer la frase
+
+    for (i = 0; i < letras; i++) {
+        if (frase.substr(i,1) === "a" || frase.substr(i,1) === "e" || frase.substr(i,1) === "i" || frase.substr(i,1) === "o" || frase.substr(i,1) === "u") {
+        document.write(frase.substr(i,1));
+        }
+    }
+
+    /*
+    
+    CORRECCIÓN DEL PROFESOR
+
+    var frase = prompt("Por favor, introduce una frase", "Mordor es oscuro");
+    var numVocales = 0;
+    var longitudTexto = frase.length;//Accedemos a la propiedad "length" para recorrer la frase
+
+    for (var i = 0; i < longitudTexto; i++) {
+        var letraActual = frase.substr(i,1);
+        if(letraActual === "a" || letraActual === "e" || letraActual === "i" || letraActual === "o" || letraActual === "u"){
+        document.write(letraActual);
+        }
+    }
+    */
+
+</script>
+</body>
+</html>

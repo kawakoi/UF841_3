@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <title>Adivina el número</title>
+</head>
+
+<body>
+    <!--
+        Quiero que crees un juego sencillo del tipo "adivina el número". Se debe elegir un número aleatorio entre 1 y 100,
+        luego desafiar al jugador a adivinar el número en 10 intentos. Después de cada intento debería decirle al jugador
+        si ha acertado o no - y si está equivocado, debería decirle si se ha quedado corto, o se ha pasado. También debería
+        decir los números que ya se han probado anteriormente. El juego acabará una vez que el jugador acierte o cuando se
+        acaben los intentos. Cuando el juego se acabe,  se le debe dar al jugador la opción de volver a jugar.
+
+        1. Generar un número aleatorio entre 1 y 100.
+        2. Registrar el número del intento en el que el jugador se encuentre. Empezando en 1.
+        3. Darle al jugador una forma de adivinar cuál es el número.
+        4. Una vez que se ha introducido un número, registrarlo en alguna parte para que el jugador pueda ver sus intentos previos.
+        5. Siguente, comprobar si el número es correcto.
+        6. Si es correcto:
+            6.1 Mostrar un mesaje de felicitaciones.
+            6.2 Hacer que el jugador no pueda introducir más intentos (esto arruinaría el juego).
+            6.3 Mostrar un control que le permita al jugador reiniciar el juego.
+        7. Si es incorrecto y al jugador todavía le quedan intentos:
+            7.1 Decirle al jugador que ha fallado.
+            7.2 Dejar al jugador intentarlo de nuevo.
+            7.3 Incrementar el número de intentos en 1.
+        8. Si el jugador falla y no le quedan turnos:
+            8.1 Decirle al jugador que el juego se ha acabado.
+            8.2 Hacer que el jugador no pueda introducir más intentos (esto arruinaría el juego).
+            8.3 Mostrar un control que permita al jugador volver a empezar el juego.
+        9.Una vez que el juego se reinicia,  asegurarse de que la lógica del juego y la IU estén completamente restablecidos, volver al paso 1.
+    -->
+
+    <h1>Adivina el número</h1>
+
+    <p>Se ha generado un número aleatorio entre 1 y 100. Si consigues adivinarlo en menos de 10 intentos te regalamos un viaje al ciberespacio. Ánimo!!!
+        Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su suposición fue demasiado alta o demasiado baja.</p>
+
+    <div class="form">
+        <label for="adivinarNumero">Inserte un número: </label>
+        <input type="text" id="adivinarNumero" class="adivinarNumero">
+
+        <input type="submit" value="Enviar número" class="enviarNumero">
+    </div>
+
+    <div class="resultado">
+        <p class="intentos"></p>
+        <p class="ultimoResultado"></p>
+        <p class="menorMayor"></p>
+    </div>
+
+    <script>
+
+//------------------- Variables y datos almacenados -------------------------------
+
+        //En esta variable generamos un número al azar entre 1 y 100 usando un algoritmo matemático.
+        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+        //Éstas tres variables almacenan los resultados del HTML y se usarán para insertar los valores en los párrafos.
+        var intentos = document.querySelector('.intentos');
+        var ultimoResultado = document.querySelector('.ultimoResultado');
+        var menorMayor = document.querySelector('.menorMayor');
+
+        //Las siguientes dos variables almacenan referencias al ingreso de texto y al botón "enviar" del formulario, y se usan para controlar las respuestas del jugador más adelante.
+        var enviarNumero = document.querySelector('.enviarNumero');
+        var adivinarNumero = document.querySelector('.adivinarNumero');
+
+        //Estas dos variables almacenan un conteo de intentos de 1 (utilizado para tener un registro de cuántos intentos ha hecho el jugador), y una referencia al botón de reinicio
+        var contador = 1;
+        var resetButton;
+
+//--------------------------------- FUNCIONES --------------------------------------
+
+//FUNCION 1
+
+        function comprobarNumero(){
+            //declara una variable llamada "intento" y establece su valor al introducido en el campo de texto.
+            //También pasamos este valor al método Number(), para asegurarnos que el valor es un número.
+            var intento = Number(adivinarNumero.value);
+
+    //1er CONDICIONAL
+            //En este caso, el test analiza si la variable "contador" es igual a 1 (por ejemplo, si es el primer intento del jugador o no)
+            if (contador === 1){
+                intentos.textContent = 'Intentos anteriores („• ֊ •„): ';
+            }
+            //añade el valor actual de "intento" al final del párrafo de "intentos", más un espacio en blanco así hay espacio entre cada intento mostrado.
+            intentos.textContent += intento + ' ';
+
+    //2do CONDICIONAL
+            //comprueba si la respuesta del jugador es igual al randomNumber establecido al comienzo de nuestro JavaScript.
+            if (intento === numeroAleatorio){
+                //Si lo es, el jugador ha adivinado correctamente y ha ganado el juego, así que le mostramos al jugador un mensaje de felicitaciones
+                ultimoResultado.textContent = '¡OMEDETOU!o(≧▽≦)o ¡Con éste número puedes conquistar el mundo (۳˚Д˚)۳!';
+                //Le damos un color verde de fondo
+                ultimoResultado.style.backgroundColor = 'green';
+                //limpiamos los contenidos del cuadro de información de intentos menorMayor
+                menorMayor.textContent = '';
+                ultimoResultado.classList.add("animate__animated animate__heartBeat");
+                //ejecutamos una función
+                setGameOver();
+
+        //SI NO...
+            //comprueba si este turno es el último
+            }else if (contador === 10) {
+                //Si lo es, el programa hace lo mismo que en el bloque anterior, excepto que en vez de mostrar un mensaje de felicitaciones, muestra uno de fin del juego.
+                ultimoResultado.textContent = '!!!¡¡¡OWARIMASHITAAAAA °˖✧◝(⁰▿⁰)◜✧˖°!!!!!!';
+                setGameOver();
+
+        //SI NO...
+            //Si ninguna de las anteriores condiciones se cumple...
+            }else{
+                //les decimos que son incorrectos
+                ultimoResultado.textContent = '¡MEC, error... (눈_눈)!';
+                ultimoResultado.style.backgroundColor = 'red';
+
+                //realizamos otro test condicional para comprobar si el intento fue más alto o más bajo que la respuesta
+                if(intento < numeroAleatorio){
+                    menorMayor.textContent = 'Sube el ánimo, que esto es muy bajo ◝(¯▿¯)◜';
+                }else if (intento > numeroAleatorio){
+                    menorMayor.textContent = '¡No te pases! baja los humos 	٩(ఠ益ఠ)۶'
+                }
+            }
+            //Añadimos 1 a la variable guessCount así el jugador usa un turno
+            contador++;
+            //vaciamos el valor del campo de texto, dejándolo listo para introducir el siguiente intento.
+            adivinarNumero.value = '';
+            adivinarNumero.focus();
+        }
+
+//FUNCION 2
+
+        function setGameOver(){
+            //Las dos primeras líneas deshabilitan la entrada de texto y el botón al fijar su propiedad deshabilitado a "verdadero"
+            adivinarNumero.disabled = true;
+            enviarNumero.disabled = true;
+            //Las tres líneas siguientes generan un elemento <button>, fijan su etiqueta de texto a "Comenzar nuevo juego", y lo añaden al pie de nuestro HTML.
+            resetButton = document.createElement('button');
+            resetButton.textContent = 'Iniciar nuevo juego';
+            document.body.appendChild(resetButton);
+            //La línea final establece un escuchador de eventos en nuestro botón nuevo de manera que cuando se haga click sobre él, una función llamada resetGame() sea ejecutada.
+            resetButton.addEventListener('click', resetGame);
+        }
+
+//FUNCION 3
+
+        //Este bloque de código reinicia todo completamente al estado en el que estaba el juego al comienzo, así el jugador puede jugar nuevamente 
+        function resetGame(){
+            //Establecemos el contador a 1
+            contador = 1
+
+            //Limpiamos todos los párrafos de información
+            var reset = document.querySelectorAll('.resultado p');
+            for (var i = 0; i < reset.length; i++){
+                reset[i].textContent = '';
+            }
+
+            //Quita de nuestro código el botón reinicio
+            resetButton.parentNode.removeChild(resetButton);
+
+            //Habilita los elementos del formulario
+            adivinarNumero.disabled = false;
+            enviarNumero.disabled = false;
+            //vacía y centra el foco en el campo de texto, quedando listo para otro intento.
+            adivinarNumero.value = '';
+            adivinarNumero.focus();
+
+            //Quita el color de fondo del párrafo "ultimoResultado"
+            ultimoResultado.style.backgroundColor = 'white';
+
+            numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        }
+    
+//------------------------------ EVENTOS ------------------------------------
+
+        //Aquí agregamos un "escuchador de evento" al botón "enviarNumero". Éste es un método que lleva dos valores de entrada (llamados argumentos)
+        //El tipo de evento que queremos escuchar (en este caso click) como una cadena, y el código que queremos ejecutar cuando ocurra el evento (en este caso la función comprobarNumero()
+        //Fíjate que no necesitamos especificar los paréntesis de la función cuando lo escribimos dentro de addEventListener()).
+        enviarNumero.addEventListener('click', comprobarNumero);
+
+    </script>
+
+</body>
+</html>

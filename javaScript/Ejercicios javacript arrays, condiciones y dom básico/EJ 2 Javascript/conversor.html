@@ -1,0 +1,40 @@
+<!--
+Conversor de grados Celsius a grados Fahrenheit
+crea un documento html que pida un numero de grados en centigrados y devuelva su valor en Farenheit
+Formula: (°C × 9/5) + 32 = °F
+Puedes usar promts o inputs y los eventos que quieras. 
+Tienes que crear una función para convertir los datos a la que le pases los grados celsius 
+como parametro y devuelva el equivalente en farenheit
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Conversor de grados Celsius a grados Fahrenheit</h1>
+
+
+        <p id="conversion"></p>
+
+        <script>
+
+            var celsius = prompt("Introduce una temperatura en grados Celsius a convertir en grados Fahrenheit:", "");
+
+            function conversor() {
+                var farenheit = ((celsius * 9) / 5) + 32;
+                return(farenheit);
+   }
+
+   document.getElementById("conversion").innerHTML = celsius + " grados Celsius equivalen a " + conversor() + " grados Fahrenheit";
+
+        </script>
+
+</body>
+</html>
+
+

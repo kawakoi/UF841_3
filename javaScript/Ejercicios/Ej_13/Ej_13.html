@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--15- Escriure un programa que escrigui en pantalla els divisors d'un nombre donat-->
+
+    <script>
+
+    var numero = prompt("Escribe un número");
+    var i;
+
+    for (i=2;i < numero/2; i++) {
+      if (numero % i === 0) {
+        document.write(i,", ");
+      }
+    }
+
+    /*
+      var n1 = 3;
+
+      for(var 1 = 0; n1/2;i++){
+        if(n1 % i === 0){
+          console.log(i);
+        }
+      }
+
+      ----------------------------------------------------------
+
+      var introduce = prompt("Escribe un número");
+      var numeros;
+      var suma=0;
+
+      // Si iniciaba en 2 no sumaría el 1
+      // Si terminaba antes de la mitad de introduce, no sumaría el número que es la mitad de "introduce"
+      // por ejemplo, en el caso de 16, no sumaría 8.
+
+      for (numeros=1; numeros <= introduce/2; numeros++) {
+        if (introduce % numeros === 0) {
+        suma += numeros;
+        }
+      }
+
+      var esDeficiente = suma > 0 && suma<introduce;
+
+      console.log("Es Deficiente: " + esDeficiente);
+
+    */
+    </script>
+</body>
+</html>

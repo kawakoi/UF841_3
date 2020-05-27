@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!--
+Usa un bucle para escribir un texto con todos los encabezados del h1 al h6.
+segun la imagen.
+Se resuelve con un for(){}
+recorre los  valores i=1 hasta i=6.
+pista "<h+i>....."
+-->
+
+<script>
+    //var text ="<h"+2+"> hola<h"2+
+/*
+    for (i=1;i<=6;i++) {
+   	document.write("<h" + i + ">Esto es un encabezado h" + i + "</h" + i + ">")
+    }
+*/
+
+    for (i=1;i<=6;i++) {
+        var hx = "<h" + i + ">";
+        var hy = "</h" + i + ">";
+   	    document.write(hx + "Esto es un encabezado h" + i + hy);
+    }
+
+    </script>
+
+</body>
+</html>

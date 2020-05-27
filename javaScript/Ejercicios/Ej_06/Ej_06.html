@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--8- Escriu un programa que demani un nombre i digui si és divisible per 2-->
+
+    <script>
+    var numero = prompt("Escribe un número");
+
+/*Para saber si un número es divisible por X necesitamos ésta operación: x % 2 == 0*/
+
+    /*Si la primera condición se cumple...*/
+    if (numero % 2 == 0) {
+        /*Devolverá un texto en pantalla, "es divisible por 2"*/
+        document.write("El número " + numero + " es divisible por 2");
+    /*Si el resultado de la operación no coincide...*/
+    } else {
+        /*Devolverá otro texto en pantalla, "NO es divisible por 2"*/
+        document.write("El número " + numero + " no es divisible por 2");
+    }
+
+</script>
+</body>
+</html>

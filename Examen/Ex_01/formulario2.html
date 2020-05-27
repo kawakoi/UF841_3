@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/8b299e0b08.js" crossorigin="anonymous"></script>
+    <title>formulario 2</title>
+</head>
+<body>
+
+<!-------------------------- Header ----------------------------------->
+<!-- Se podría hacer mediante includes, al igual que el menú horizontal y el footer, pero en esta ocasión así bastará-->
+
+    <header id="header">
+        <div id="logo">
+            <img src="img/Logo.png" alt="Kawakoi Shop">
+        </div>
+        <div>
+            <h1>awakoi</h1>
+        </div>
+
+    </header>
+
+    <!----------------------------------- Menú horizontal ----------------------------------->
+
+
+    <nav id="mainMenu">
+        <div>
+          <ul>
+            <li><a href="formulario1.html">Formulario 1</a></li>
+            <li><a href="formulario2.html">Formulario 2</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!----------------------Información adicional de la sección ------------------->
+
+      <main class="informacion">
+      <section class="info">
+        <div class="infoh2">
+            <img src="img/article.png" alt="Sube un artículo" class="article">
+            <h2>INTRODUCE TU ARTÍCULO</h2>
+        </div>
+      </section>
+
+      <!--------------------- Formulario para subir un artículo ------------------------------>
+
+      <form action="POST" class="formulario">
+        <h2>Datos de tu artículo</h2>
+        <div class="category">
+            <label for="price">¿Qué precio le quieres poner a tu producto? (en €)</label>
+            <input type="number" min="0.00" id="price">
+
+            <label for="category">¿A qué categoría pertenece?</label>
+            <select id="category" name="category">
+              <option value="ropa">Ropa y Complementos</option>
+              <option value="tecnologia">Tecnología</option>
+              <option value="deportes">Deportes</option>
+              <option value="mobiliario">Mobiliario</option>
+              <option value="aficiones">Aficiones y Ocio</option>
+              <option value="otros">Otros</option>
+            </select>
+            <!-- He añadido un enlace externo para informar al usuario de los diferentes impuestos-->
+            <label for="taxTitle">Escoge el tipo de impuesto [<a href="https://www.rankia.com/blog/irpf-declaracion-renta/780527-tipos-iva-espana-ano-2020">Tipos de impuestos</a>]</label><br>
+
+            <input type="radio" id="tax" name="tax" value="4">
+            <label for="4">4%</label><br>
+
+            <input type="radio" id="tax" name="tax" value="10">
+            <label for="10">10%</label><br>
+            
+            <input type="radio" id="tax" name="tax" value="21">
+            <label for="21">21%</label>
+
+            <input type="button" value="Subir artículo" id="enviar">
+        </div>
+    </form>
+</main>
+
+<!------------------------- Footer ------------------------------------------>
+
+      <footer id="footer">
+            <p>Diario de desarrollo Web &copy; 2019;</p>
+      </footer>
+</body>
+</html>

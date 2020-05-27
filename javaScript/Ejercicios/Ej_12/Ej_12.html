@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--14- Afegir a l'exercici anterior que ens digui per qual dels quatre és divisible (cal dir tots aquells pels quals és divisible)-->
+
+<script>
+
+    var numero = prompt("Por favor, escribe un número");
+
+    if (numero % 2 == 0 || numero % 3 == 0 || numero % 5 == 0 || numero % 7 == 0) {
+        if (numero % 2 == 0) {
+        document.write("El número " + numero + " divisible por 2.<br>");
+        }
+        if (numero % 3 == 0) {
+        document.write("El número " + numero + " divisible por 3.<br>");
+        }
+        if (numero % 5 == 0) {
+        document.write("El número " + numero + " divisible por 5.<br>");
+        }
+        if (numero % 7 == 0) {
+        document.write("El número " + numero + " divisible por 7.<br>");
+        }
+    } else {
+        document.write("El número " + numero + " no es divisible por 2, 3, 5 ni 7");
+    }
+
+</script>
+
+</body>
+</html>

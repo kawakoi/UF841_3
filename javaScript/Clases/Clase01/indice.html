@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script src = "hola.js"></script>-->
+</head>
+<body>
+    <script>
+
+        document.write("<h2>hello world desde document.write</h2>");
+        document.getElementById("test").innerHTML = "<h3>Hola desde un div con id test</h3>";
+        console.log("hello desde la consola");
+
+        var X = 10;
+        var y = "hello" + "string";
+        y = 23;
+        var c = x + y;
+
+        console.log(x);
+    </script>
+
+    <h1>Mi página con javascript</h1>
+    <div id="test"></div>
+
+    <script>
+
+        /*DOM document object manager: Documento con todas las etiquetas html
+        Modificar atributos
+        Cambiar estilos
+        Mostrar u ocultar elementos*/
+        
+        /*window.alert("hello world from javascript");*/
+
+        function escrito(parm1, parm2){
+            document.write("soy una función");
+        }
+
+        escrito();
+    </script>
+    
+</body>
+</html>

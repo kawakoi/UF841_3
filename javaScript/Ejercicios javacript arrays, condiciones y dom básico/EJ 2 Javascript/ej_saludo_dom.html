@@ -1,0 +1,36 @@
+<!-- Dado el código HTML a continuación termina de rellenarlo para tras 
+    rellenar los campos de nombre y apellido y hacer clic en enviar datos 
+    aparezca por pantalla el texto «hola nombre apellidos, gracias por rellenar el formulario». -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio javascript - Instrucciones básicas DOM</title>
+    </head>
+    <body>
+    
+    <form action="#" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre">
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido">
+
+        <input type="button" value="Rellenar datos" onclick="enviarSaludo()"> 
+    </form>
+    
+    <p id="saludo"></p>
+    
+    <script>
+    
+        function enviarSaludo(){
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            document.getElementById("saludo").innerHTML = "Hola " + nombre + " " + apellido + ", gracias por rellenar el formulario.";
+
+        }
+
+    </script>
+
+    </body>
+</html>
