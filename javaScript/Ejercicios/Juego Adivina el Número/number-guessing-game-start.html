@@ -38,8 +38,7 @@
 
     <h1>Adivina el número</h1>
 
-    <p>Se ha generado un número aleatorio entre 1 y 100. Si consigues adivinarlo en menos de 10 intentos te regalamos un viaje al ciberespacio. Ánimo!!!
-        Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su suposición fue demasiado alta o demasiado baja.</p>
+    <p>Se ha generado un número aleatorio entre 1 y 100. Si consigues adivinarlo en menos de 10 intentos te regalamos un viaje al ciberespacio. Ánimo!!!</p>
 
     <div class="form">
         <label for="adivinarNumero">Inserte un número: </label>
@@ -79,6 +78,7 @@
 //FUNCION 1
 
         function comprobarNumero(){
+            adivinarNumero.focus();
             //declara una variable llamada "intento" y establece su valor al introducido en el campo de texto.
             //También pasamos este valor al método Number(), para asegurarnos que el valor es un número.
             var intento = Number(adivinarNumero.value);
@@ -94,13 +94,13 @@
     //2do CONDICIONAL
             //comprueba si la respuesta del jugador es igual al randomNumber establecido al comienzo de nuestro JavaScript.
             if (intento === numeroAleatorio){
+                ultimoResultado.classList.add("animate__animated", "animate__heartBeat");
                 //Si lo es, el jugador ha adivinado correctamente y ha ganado el juego, así que le mostramos al jugador un mensaje de felicitaciones
                 ultimoResultado.textContent = '¡OMEDETOU!o(≧▽≦)o ¡Con éste número puedes conquistar el mundo (۳˚Д˚)۳!';
                 //Le damos un color verde de fondo
                 ultimoResultado.style.backgroundColor = 'green';
                 //limpiamos los contenidos del cuadro de información de intentos menorMayor
                 menorMayor.textContent = '';
-                ultimoResultado.classList.add("animate__animated animate__heartBeat");
                 //ejecutamos una función
                 setGameOver();
 
@@ -117,6 +117,14 @@
                 //les decimos que son incorrectos
                 ultimoResultado.textContent = '¡MEC, error... (눈_눈)!';
                 ultimoResultado.style.backgroundColor = 'red';
+
+                /*
+                ultimoResultado.classList.add("animate__animated", "animate__heartBeat");
+                ultimoResultado.addEventListener("animate__animated", "animate__heartBeat"){
+                    console.log("end");
+                    ultimoResultado.classList.remove("animate__animated", "animate__heartBeat");
+                }
+                */
 
                 //realizamos otro test condicional para comprobar si el intento fue más alto o más bajo que la respuesta
                 if(intento < numeroAleatorio){

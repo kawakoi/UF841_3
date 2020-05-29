@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var friend = {name: "Chimuelo", color: "red"}//nuervo objeto
+
+        //Funciones como expresiones
+        var fly = function(){
+            console.log("estoy volando");
+        }
+
+        var lola = {name: "lola", color: "green"};
+
+        var player = {
+            name = "Luigi",
+            x = 120,
+            y = 100,
+            energy = 100,
+            friend: lola,
+            weapons: ["knife", "gun", "bazooka"],
+            superPower: function(){
+                console.log("no tengo superpoderes");
+            }
+        };
+
+        var enemies = [{
+            x:100,
+            y:9,
+            name:"el"
+
+        },
+        {
+            x:30,
+            y:4,
+            name:"el"
+        },
+        {
+            x:22,
+            y:45,
+            name:"el"
+        }
+        ];
+
+        //bucle que recorre un array de objetos
+        for(var i = 0;i < enemies.length; i++){
+            enemies[i].x += 10;
+            console.log(enemies[i].name);
+        }
+
+        //Acceder a propiedades
+        console.log(enemies[1].x);
+
+        //añadir propiedad al 2
+        enemies[2].name = "Voldemor";
+
+        //unshift es para añadir al principio y push para añadir al final
+        player.weapons.push("tank")
+        player.x = 80;
+        player.superPower();
+        
+
+        //var posX = "texto";
+        //player[posX] = "hola";
+
+        console.log(player.superPower);
+
+        console.log(player);
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .miClase{
+            color: rebeccapurple;
+        }
+
+        .segundaClase{
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="test">TEST añadir clases desde javascript</h1>
+
+    <script>
+        var test = document.getElementById("test");
+        //test.style.color = "blue";
+        //console.log(test.className);
+
+        //test.className = "miClase segundaClase";
+        test.classList.add("segundaClase");
+        //test.classList.add("miClase", "segundaClase");
+
+        console.log(test.classList);
+
+        /*
+        test.addEventListener("click", function(){//Escuchador de eventos, se ejecuta cuando recibe algo (click)
+        //Cuando pasamos la función como parámetro, se pasan sin paréntesis
+            test.style.color = "green";
+        });
+        */
+/*
+        test.addEventListener("click", function (){
+            console.log(event);
+            this.style.color = "red";
+            return "He cambiado el color";
+        });
+        */
+/*
+        function cambioColor(){
+            test.style.color = "red";
+            return "He cambiado el color";
+        }
+
+        test.onclick = function (){
+            test.style.backgroundColor = "blue";
+            return "He cambiado el fondo";
+        }
+*/
+        console.log(cambioColor);
+    </script>
+</body>
+</html>
