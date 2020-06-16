@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .my-images{
+            width:150px;
+        }
+
+        .original{
+            width: 600px;
+            height: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="image-gallery">
+        <h4>IMAGE GALLERY</h4>
+
+        <section id="gallery-preview">
+          <img class="original" src="img/original/ryu.jpg" alt="image-gallery-1">
+        </section>
+
+        <section id="gallery-thumbnails">
+            <img class="my-images" src="img/original/ryu.jpg" alt="image-gallery-1">     
+            <img class="my-images" src="img/original/ken.jpg" alt="image-gallery-2">
+            <img class="my-images" src="img/original/kyo.jpg" alt="image-gallery-3">
+            <img class="my-images" src="img/original/Iori.jpg" alt="image-gallery-4">
+         </section> 
+
+      </section>
+
+      <script>
+/*    
+(function(){
+
+let imagePreview = document.querySelector("#gallery-preview img");
+let imageThumbnail = document.getElementById("gallery-thumbnails");
+
+imageThumbnail.addEventListener("click", imageChanger);
+
+function imageChanger(e) {
+    imagePreview.src = e.target.src;
+}
+})();
+*/
+
+/*
+let imagePreview = document.querySelector("#gallery-preview img");
+let imageThumbnail = document.getElementById("gallery-thumbnails");
+
+imageThumbnail.addEventListener("click", imageChanger);
+
+function imageChanger(e) {
+    imagePreview.src = e.target.src;
+}
+
+*/
+
+//declaracion: en este caso le pongo nombre mifuncion
+var mifuncion = function(){
+let imagePreview = document.querySelector("#gallery-preview img");
+let imageThumbnail = document.getElementById("gallery-thumbnails");
+imageThumbnail.addEventListener("click", imageChanger);
+function imageChanger(e) {
+    imagePreview.src = e.target.src;
+}
+}
+
+//Aqui la ejecuto
+mifuncion();
+      </script>
+</body>
+</html>

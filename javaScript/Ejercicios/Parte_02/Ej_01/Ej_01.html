@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="#">
+    <input type="text" id="recordatorio">
+
+    <input type="button" value="Enviar Mensaje" onclick="insert()" id="enviar">
+    <input type="button" value="Resetear lista" onclick="resetear()" id="reset">
+
+    <ul id="lista">
+    </ul>
+
+</form>
+
+    <script>
+        /*
+        Crea un documento web que nos ayude a generar una lista de recordatorios.
+        La lista se debe poder resetear cuando el usuario lo desee.
+        La lista no debe añadir nuevas líneas cuando el usuario no haya escrito nada.
+        Se sugiere crear un formulario con un input de texto y dos botones.
+        */
+
+        function insert() {
+            var crearLi = document.createElement("li");                         // Crea una etiqueta <li> node
+            var recordatorio = document.getElementById("recordatorio").value;   //Recoge el valor del id "recordatorio"
+            
+            if(recordatorio != ""){
+                var texto = document.createTextNode(recordatorio);                 // Crea un text node con el valor de la variable "recordatorio"
+                crearLi.appendChild(texto);                                         // Agrega el ultimo hijo de un nodo ("<li>")
+                document.getElementById("lista").appendChild(crearLi);              // Añadir <li> a <ul> con id = "myList"
+            }else{
+                window.alert("Debes introducir un recordatorio");
+            }
+        }
+
+        function resetear() {
+            var list = document.getElementById("lista");
+
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+                }
+            }
+            
+    </script>
+</body>
+</html>

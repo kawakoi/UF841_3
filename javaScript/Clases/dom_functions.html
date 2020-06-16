@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Root node -------- html (xml, svg)
+        Child node ------- Nodos hijos
+        Parent node ------ Nodos Padres
+        Siblings node ---- Nodos hermanos
+        Text node -------- Nodos de texto
+    -->
+    <div id="d1">
+        <a href="">Ir a mi div</a>
+    </div>
+
+    <a class="ln" href="">Ir a mi web</a>
+    <br>
+    <a class="ln" href="">Otra web</a>
+    <br>
+
+    <input id = "myInput" value="Valor del input">
+
+    <button id="miBoton">Add parrafos</button>
+    <button >Add parrafos2</button>
+
+    <script>
+        var link = document.getElementById('ln');
+        var link = document.querySelector('a');//Devuelve la primera etiqueta que encuentra
+        var link = document.querySelectorAll('a');//devuelve una lista con todos los nodos (como un array)
+        var link = document.getElementsByClassName('ln');//devuelve una lista
+
+        var div1 = document.getElementById('.d1');
+        var div1 = document.querySelector('#d1');
+        var div1 = document.getElementById('d1')
+
+        var link2 = div1.querySelectorAll('.ln');
+        var link2 = div1.getElementsByTagName('a');
+
+        /*
+        link2[0].textContent = "propiedad text content";//solo muestra el texto sin etiquetas
+        link2[0].innerText = "<h1>Propiedad text content</h1>";//lee las etiquetas que encuentra
+        link2[0].innerHTML = "<h1>Propiedad text content</h1>";
+        link2[0].createTextNode("Caracola");
+        */
+
+        var input = document.getElementById("myInput");
+
+        input.value = "Cocina";
+        //console.log(x.value);
+
+        console.log(link);
+
+        var bt = document.getElementById("miBoton");
+        bt,addEventListener("click", function(){
+            //console.log("me has clicado");
+            var p = document.createElement('p');
+            //para añadir los parrafos al documento...
+            p.textContent = "me has clicado";//creas el texto
+            var text = document.createTextNode("tambien me clicas");//mete el texto en el parrafo
+            p.appendChild(text);//mete el text en el div
+            div1.appendChild(p);
+
+            div1.parentNode.appendChild(p);
+
+            //para eliminar de uno en uno
+        });
+
+        var bt = document.getElementByTagname("miBoton");
+
+        bt[i],addEventListener("click", function(event){
+            for(var i = 0;i< bt.lenght; i++){
+                bt[i],addEventListener("click", function(event){
+                    var botonActual = event.srcElement;
+                    botonActual.textContent = "zasca";
+                    console.log(event);
+                })
+            }
+
+        });
+
+    </script>
+</body>
+</html>

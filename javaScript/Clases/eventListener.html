@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM Event Example</title>
+
+<style>
+#t { border: 1px solid red }
+#t1 { background-color: pink; }
+</style>
+
+<script>
+
+// Función para cambiar el contenido de t2
+//Creamos una función y le pasamos un parámetro
+function modifyText(nuevo_texto) {
+  //Creamos la variable t2 y le damos el contenido de t2 (two)
+  var t2 = document.getElementById("t2");
+  //Actualizamos el valor de t2 por un nuevo texto
+  t2.firstChild.nodeValue = nuevo_texto;
+}
+ 
+// Función para añadir el evento "listener" a t
+//creamos la función "load"
+function load() { 
+  //Creamos la variable "el" y le pasamos el valor de "t", que será una tabla de valores
+  var el = document.getElementById("t");
+  //Dentro de "el" (tabla de valores) llamamos al evento "click" de la siguiente manera para que se ejecute la función "modifyText"
+  //Dentro de la función"modifyText" le pasamos el texto "four" para que éste se sustituya
+  el.addEventListener("click", function(){modifyText("four")}); 
+} 
+</script>
+
+</head>
+<body onload="load();">
+
+<table id="t">
+  <tr><td id="t1">one</td></tr>
+  <tr><td id="t2">two</td></tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <!--<canvas width="500" height = "300" id="myCanvas"></canvas>-->
+    <script>
+        window.addEventListener("load", function () {
+            var ANCHO = 300;
+            var ALTO = 600;
+            //enemies
+            var enemies = [{
+                    x: 0,
+                    y: 100,
+                    speedX: 1,
+                    w: 40,
+                    h: 40
+                },
+                {
+                    x: 100,
+                    y: 200,
+                    speedX: 2,
+                    w: 40,
+                    h: 40
+                },
+                {
+                    x: 100,
+                    y: 500,
+                    speedX: 0.5,
+                    w: 40,
+                    h: 40
+                },
+                {
+                    x: 10,
+                    y: 400,
+                    speedX: 0.5,
+                    w: 40,
+                    h: 40
+                }
+            ]
+            var fondo =  new Image();
+            fondo.src = "ryu.png";
+            console.log(fondo);
+            var canvas = document.createElement("canvas");
+            canvas.width = ANCHO;
+            canvas.height = ALTO;
+            canvas.id = "myCanvas";
+            document.body.appendChild(canvas);
+            var ctx = canvas.getContext("2d");
+
+            var update = function () {
+                /* var i = 0;
+                 var n = enemies.length;
+                 while (i < n) {
+                     enemies[i].x += enemies[i].speedX;
+                     i++;
+                 }*/
+
+                /*var n = enemies.length;
+                for(var i =  0; i < n; i++){
+                    enemies[i].x += enemies[i].speedX;
+                }*/
+                enemies.forEach(function (enemy) {
+                    enemy.x += enemy.speedX;
+                });
+            }
+            var draw = function () {
+                ctx.clearRect(0, 0, ANCHO, ALTO);
+                ctx.drawImage( fondo, 0, 0, ANCHO, ALTO);
+                ctx.fillStyle = "#3333FF";
+                
+                /* var i = 0;
+                 var n = enemies.length;
+                 while (i < n) {
+                     ctx.fillRect(enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h);
+                     i++;
+                 }*/
+
+                /*var n = enemies.length;
+                for(var i =  0; i < n; i++){
+                    ctx.fillRect(enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h);
+                }*/
+                enemies.forEach(function (element, index) {
+                    ctx.fillRect(element.x, element.y, element.w, element.h);
+                });
+            }
+            var step = function () {
+                window.requestAnimationFrame(step);
+                update();
+                draw();
+            }
+        step();
+    });
+    </script>
+</body>
+</html>

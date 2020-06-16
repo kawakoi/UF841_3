@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+/*
+        function sumaDiez(){
+            var a = 0;
+            function suma(){
+                var b = 10;
+                a += b;
+            }
+            suma();
+
+            return a;
+        }
+
+        //sumaDiez();
+        //sumaDiez();
+        //sumaDiez();
+
+        var res = sumaDiez();
+
+        //console.log(a);
+        console.log();
+*/
+
+        var suma = (function (){
+            var numero = 0;
+            function sumaDiez(){
+                numero += 10;
+                return numero;
+            }
+
+            console.log(numero);
+
+            return sumaDiez;
+        })();
+
+        console.log(suma());
+        console.log(suma());
+        console.log(suma());
+        console.log(suma());
+
+        
+        
+    </script>
+</body>
+</html>

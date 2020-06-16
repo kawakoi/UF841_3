@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="mail">lkjshdf kjhsd klsajdhfl</label>
+        <input type="text" id="mail" name="mail">
+        <button type="submit">Submit</button>
+        </form>
+
+        <script>
+            const myForm = document.getElementById("myForm");
+
+
+            myForm.addEventListener("submit", function (event){
+                //Evitar que el formulario se envie
+                event.preventDefault();
+                console.log(this.value);
+                if(this.value !== 'a'){
+                    console.log("no es una a");
+                }
+            });
+        </script>
+</body>
+</html>

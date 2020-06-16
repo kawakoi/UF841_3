@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+    Ejercicio 4 Javascript
+
+    Crea una función (una clase) CuentaCorriente, que tenga las propiedades: nombreTitular, apellidosTitular, saldo.
+    Y un método mostrarDatos que muestre todos los datos de la cuenta en un alert().
+
+    Crea dos objetos de tipo CuentaCorriente ej: cuenta001, cuenta002 (Con datos diferentes) y muestra sus datos.
+
+    Añade un botón que al clicar haga lo siguiente:
+        1- Pida los datos para crear una cuenta nueva. ( podéis usar inputs o ir abriendo prompts)
+        2- cree otro objeto del tipo CuentaCorriente pero con los datos introducidos por el usuario.
+        3- Mostar un alert que diga que la cuenta se ha creado correctamente y enseñe los datos de esta.
+    -->
+    
+    <form action="POST" class="formulario">
+        <h2>Introduce los datos del cliente</h2>
+
+            <label for="nombre">Cliente</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos">
+
+            <label for="saldo">Saldo</label>
+            <input type="text" name="saldo" id="saldo">
+
+            <input type="button" value="Crear nuevo cliente" id="enviar" onclick="insert()">
+
+    </form>
+
+<script>
+
+    function insert(){
+        var nombre = document.getElementById("nombre").value;
+        var apellidos = document.getElementById("apellidos").value;
+        var saldo = document.getElementById("saldo").value;
+
+        var CuentaCorriente = function (nombre, apellidos, saldo){
+            this.nombreTitular = nombre;
+            this.apellidosTitular = apellidos;
+            this.saldo = saldo;
+        }
+
+        if(nombre != "" && apellidos != "" && saldo != ""){
+            var cuenta = new CuentaCorriente(nombre, apellidos, saldo);
+            alert("El cliente de nombre " + cuenta.nombreTitular + " y apellido " + cuenta.apellidosTitular + ", tiene un saldo de " + cuenta.saldo + " €");
+            var cuenta001 = new CuentaCorriente("Anakin", "Skywalker", 2500);
+            var cuenta002 = new CuentaCorriente("Frodo", "Bolson", -650);
+            alert("El cliente de nombre " + cuenta001.nombreTitular + " y apellido " + cuenta001.apellidosTitular + ", tiene un saldo de " + cuenta001.saldo + " €");
+            alert("El cliente de nombre " + cuenta002.nombreTitular + " y apellido " + cuenta002.apellidosTitular + ", tiene un saldo de " + cuenta002.saldo + " €");
+        }else{
+            alert("Debes introducir todos los datos");
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+    <title>Actualizar Contraseña</title>
+</head>
+<body>
+    <!-- Validar formulario: Comparar dos campos contraseña. -->
+
+    <div class="contenedor-principal">
+        <div class="form-header">
+            <img src="img/puny.png" alt="logo-web">
+            <h1><span>K</span>awakoi</h1>
+        </div>
+
+        <div class="contenedor-form">
+            <form action="POST" class="formulario">
+                <div class="titulo-form">
+                    <h2>Actualiza tu contraseña</h2>
+                </div>
+    
+                <div class="input-form">
+                    <label class="label" for="pass1">Nueva contraseña</label>
+                    <input type="password" class="input" name="pass1" id="pass1">
+                </div>
+
+                <div class="input-form">
+                    <label class="label" for="pass2">Repite la contraseña</label>
+                    <input type="password" class="input" name="pass2" id="pass2">
+                </div>
+
+                    <input type="button" class="input" value="Actualizar contraseña" id="enviar" onclick="insert()">
+                </form>
+            </div>
+        </div>
+        </div>
+    <script>
+
+    //Esta función se ejecutará cuando demos el botón gracias al evento "onclick" del formulario
+    function insert(){
+
+        //Guardamos los valores de los inputs con id "pass1" y "pass2" en dos variables
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+
+        //si el password 1 y 2 son diferentes...
+        if (pass1 != pass2) {
+            //mostramos un alert para que nos avise.
+            alert("El password no coincide");
+
+        //Si el contenido de pass1 o pass2 tiene menos de 6 carácteres...
+        } else if (pass1.length < 6 || pass2.length < 6) {
+            //mostramos un alert que nos avise de ello.
+            alert("El password debe contener almenos 6 carácteres");
+            
+        //Si ninguna de las anteriores condiciones se cumple...
+        } else {
+            //Mostramos el alert avisando que la actualización fue un éxito
+            alert("La contraseña se ha actualizada correctamente");
+        }
+    }
+
+    </script>
+</body>
+</html>

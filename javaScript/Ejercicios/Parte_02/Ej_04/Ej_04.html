@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ficha producto - imágenes</title>
+    <meta name="author" content="francesc ricart">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<div class="contenedor-producto">
+		<div class="imagen-principal"></div>
+		<div class="subImagen-1"></div>
+		<div class="subImagen-2"></div>
+		<div class="subImagen-3"></div>
+		<div class="subImagen-4"></div>
+    </div>
+    
+    <script>
+        var zFondos600 = ["url('img/original/ryu.jpg')","url('img/original/ken.jpg')","url('img/original/kyo.jpg')","url('img/original/iori.jpg')"];
+        var zFondos150 = ["url('img/original/ryu.jpg')","url('img/original/ken.jpg')","url('img/original/kyo.jpg')","url('img/original/iori.jpg')"];
+
+        //var zFondos150 = ["url('img/thumb/ryu-thumb.jpg')","url('img/thumb/ken-thumb.jpg')","url('img/thumb/kyo-thumb.jpg')","url('img/thumb/iori-thumb.jpg')"];
+
+        var imagenPrincipal = document.querySelectorAll(".imagen-principal")[0];
+        var subImagenes = document.querySelectorAll('[class *= "subImagen-"]');
+
+        imagenPrincipal.style.backgroundImage =zFondos600[0];
+
+        for (i = 0; i < zFondos150.length; i++) {
+            subImagenes[i].style.backgroundImage =zFondos150[i];
+        }
+        
+        //subImagenes[0].style.backgroundImage =zFondos150[0];
+        //subImagenes[1].style.backgroundImage =zFondos150[1];
+        //subImagenes[2].style.backgroundImage =zFondos150[2];
+        //subImagenes[3].style.backgroundImage =zFondos150[3];
+
+        /*
+
+        //Solución con closures
+        for (i = 0; i < subImagenes.length; i++) {
+
+            //declaramos una función y le pasamos un parámetro (inventado)
+            var addListener = (function(index){
+                subImagenes[index].addEventListener('mouseover', function (){
+                    console.log(index);
+                    imagenPrincipal.style.backgroundImage = zFondo600[index];
+            })
+        })(i);
+        //addListener(i);
+    };
+
+        */
+
+        subImagenes[0].addEventListener("mouseover",accion0);
+        subImagenes[1].addEventListener("mouseover",accion1);
+        subImagenes[2].addEventListener("mouseover",accion2);
+        subImagenes[3].addEventListener("mouseover",accion3);
+
+        function accion0(){imagenPrincipal.style.backgroundImage =zFondos600[0];}
+        function accion1(){imagenPrincipal.style.backgroundImage =zFondos600[1];}
+        function accion2(){imagenPrincipal.style.backgroundImage =zFondos600[2];}
+        function accion3(){imagenPrincipal.style.backgroundImage =zFondos600[3];}   
+
+    </script>
+</body>
+</html>

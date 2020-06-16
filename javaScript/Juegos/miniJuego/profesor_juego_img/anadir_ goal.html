@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir objeto Goal para ganar el juego</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<canvas width="500" height = "300" id="myCanvas"></canvas>-->
+    <script>
+        window.addEventListener("load", function () {
+
+            var ANCHO = 360;
+            var ALTO = 640;
+
+            var gameLive = true;
+
+            //enemies
+            var enemies = [{
+                    x: 0,
+                    y: 100,
+                    speedX: 1,
+                    w: 40,
+                    h: 40,
+
+                },
+                {
+                    x: 100,
+                    y: 200,
+                    speedX: 2,
+                    w: 40,
+                    h: 40,
+
+                },
+                {
+                    x: 100,
+                    y: 300,
+                    speedX: 0.5,
+                    w: 40,
+                    h: 40,
+
+                },
+                {
+                    x: 10,
+                    y: 400,
+                    speedX: 0.5,
+                    w: 40,
+                    h: 40,
+
+                }
+            ]
+             /*TODO crear el objeto Goal ( ej: tesoro ).
+                *
+                *
+                */
+
+            //El objecto player
+            var player = {
+                x: ANCHO / 2 - 20,
+                y: 540,
+                speedY: 2,
+                w: 40,
+                h: 40,
+                isMoving: false,
+
+            }
+
+            //mover el Player
+            var movePlayer = function () {
+                player.isMoving = true;
+            }
+            //AParar el player
+            var stopPlayer = function () {
+                player.isMoving = false;
+            }
+
+            var sprites = {};
+          
+
+            var load = function() {
+                sprites.player = new Image();
+                sprites.player.src = 'img/player.png';
+
+                sprites.enemy = new Image();
+                sprites.enemy.src = 'img/enemy.png';
+            }
+
+            //creamos el canvas
+            var canvas = document.createElement("canvas");
+            canvas.width = ANCHO;
+            canvas.height = ALTO;
+            canvas.id = "myCanvas";
+            //añadimos el canvas al body
+            document.body.appendChild(canvas);
+            //accedemos al con
+            var ctx = canvas.getContext("2d");
+
+            //crear los eventos del mouse
+            canvas.addEventListener("mousedown", movePlayer);
+            canvas.addEventListener("mouseup", stopPlayer);
+            //crear los eventos tactiles
+            canvas.addEventListener("touchstart", movePlayer);
+            canvas.addEventListener("touchend", stopPlayer);
+
+
+            var update = function () {
+
+                /*TODO checkear si el player colisiona con el Goal,        
+                * si es así terminar el juego o passar de Nivel.
+                *
+                *
+                */
+
+                
+                //update the player
+                if (player.isMoving) {
+                    player.y += -player.speedY;
+                }
+                //update the enemies
+
+                //recorremos cada enemigo del array enemies 
+                enemies.forEach(function (enemy, index) {
+                    //Mira si el player collisiona con el enemigo, si es así se para el Juego
+                    if(checkColision(player, enemy)){
+                        gameLive = false;
+                        alert("GAME OVER");
+                        //refresca la página
+                        window.location = "";
+                    }
+                    //Mira si el enemigo llega a los límites e invertimos la velocidad
+                    var crossRightLimit = enemy.x >= (ANCHO - enemy.w);
+                    var crossLeftLimit = enemy.x <= 0;
+
+                    if (crossRightLimit) {
+                        enemy.x = ANCHO - enemy.w;
+                        enemy.speedX *= -1;
+
+                    } else if (crossLeftLimit) {
+                        enemy.x = 0;
+                        enemy.speedX *= -1;
+
+                    }
+                    enemy.x += enemy.speedX;
+                });
+
+            }
+
+        
+            var draw = function () {
+                //limpiar el canvas
+                ctx.clearRect(0, 0, ANCHO, ALTO);
+                //dibujar el player
+                ctx.fillStyle = "#33FF00";
+                //ctx.fillRect(player.x, player.y, player.w, player.h);
+                ctx.drawImage(sprites.player, player.x, player.y, player.w, player.h);
+                /*TODO dibujar el Goal.
+                *
+                *
+                */
+
+                //dibujar enemies
+                ctx.fillStyle = "#3333FF";
+                enemies.forEach(function (en, index) {
+                    
+                    //ctx.fillRect(element.x, element.y, element.w, element.h);
+                    ctx.drawImage(sprites.enemy, en.x, en.y, en.w, en.h);
+                });
+
+
+
+            }
+
+            var checkColision = function (rect1, rect2) {
+                var colBottom = rect1.y < (rect2.y + rect2.h);
+                var colTop = (rect1.y + rect1.h) > rect2.y;
+                var colRight = (rect1.x + rect1.w) > rect2.x;
+                var colLeft = rect1.x < (rect2.x + rect2.w);
+
+                var colision = colBottom && colTop && colRight && colLeft;
+                return colision;
+            }
+
+            var step = function () {
+                update();
+                draw();
+                if (gameLive) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            load();
+            step();
+        });
+    </script>
+</body>
+
+</html>

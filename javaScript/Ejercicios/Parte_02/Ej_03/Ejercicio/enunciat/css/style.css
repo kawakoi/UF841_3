@@ -1,0 +1,44 @@
+*{margin:0;padding:0;}
+
+#emergenteRGPD{
+text-align: center;
+padding:20px 20px 20px 20px;
+background-color: rgba(20,20,20,0.8);
+min-height: 26px;
+font-size: 14px;
+color: #FFFFFF;
+line-height: 26px;
+font-family: "Trebuchet MS",Helvetica,sans-serif;
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+opacity:0.9;
+}
+
+#emergenteRGPD a{
+    color:#fff;
+}
+
+#emergenteRGPD p, #emergenteRGPD div{
+    display:inline-block;
+}
+
+#emergenteRGPD p{
+	font-family: OpenSans, arial, "sans-serif";
+	color: #FFFFFF;
+}
+
+#botonRGPD{
+	font-family: OpenSans, arial, "sans-serif";
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 14px;
+	background: #3E9B67;
+	box-sizing: border-box; 
+	padding: 15px 24px;
+	text-align: center;
+    transition: background 0.3s;
+    cursor: pointer;
+}

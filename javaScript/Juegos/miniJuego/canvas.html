@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--es una etiqueta que crea html5 para crear un espacio para meter una imagen.-->
+    <!--<canvas width="500" height="300" id="myCanvas"></canvas>-->
+
+    <script>
+
+        /*
+        var canvas = createElement("canvas");
+        canvas.innerHTML = "canvas";
+        canvas.setAttribute("width", ancho);
+        canvas.setAttribute("height", alto);
+        canvas.setAttribute("id", "myCanvas");
+        */
+
+        //var canvas = document.getElementById("myCanvas");
+
+        //ctx.width = 100;
+
+//-----------------------------VARIABLES------------------------------
+
+        var canvas = document.createElement("canvas");
+        var ANCHO = 600;//Las variables constantes se escriben con mayúsculas
+        var ALTO = 300;
+        var ctx = canvas.getContext("2d");
+        var x = 0,
+            y = 40,
+            w = 20,
+            h = 20;
+        var speed = 2;
+        var blueZone, greenZone, redZone;
+
+        canvas.width = ANCHO;
+        canvas.height = ALTO;
+        canvas.id = "myCanvas";
+
+        document.body.appendChild(canvas);
+
+//---------------------------FUNCIONES-------------------------------
+
+        //funciones como expresiones, guardar una función dentro de una variable.
+        var update = function(){
+            var crossRightLimit = x >= (ANCHO - w);
+            var crossLeftLimit = x <= 0;
+
+            //Para hacer que rebote hay que invertir la velocidad (valor negativo).
+            if(crossRightLimit){
+                x = ANCHO - w;
+                speed = -speed;
+
+            }else if(crossLeftLimit){
+                x = 0;
+                speed = -speed;
+            }
+
+            x = x + speed;
+
+            blueZone = x >= 0 && x < 200;
+            greenZone = x >= 200 && x < 400;
+            redZone = x >= 400 && x < 600;
+
+            console.log(blueZone);
+            
+//Intento personal (funcional en su momento) para hacer rebotar el cubo
+
+            /*
+            var right = x + speed;
+            var left = x - speed;
+            actualizamos la velocidad
+            
+            if (movimiento == "right"){
+                x += speed;
+            }
+            if (movimiento == "left"){
+                x -= speed;
+            }
+
+            if (x >= 480){
+                movimiento = "left";
+            }
+            if (x<=0){
+                movimiento = "right"; 
+            }
+            
+            //w = w speed;
+            //h = h + speed;
+            */
+
+        }
+
+        var draw = function(){
+            ctx.clearRect(0, 0, ANCHO, ALTO);
+
+            if(blueZone){
+                ctx.fillStyle = "rgb(30,144,255)";
+            }else if(greenZone){
+                ctx.fillStyle = "rgb(46,139,87)";
+            }else if(redZone){
+                ctx.fillStyle = "rgb(220,20,60)";
+            }
+
+            ctx.fillRect(x,y,w,h);
+
+//Intento personal (funcional en su momento) para cambiar los colores.
+            
+            /*
+            //ctx.fillStyle = "rgb(0,100,100)";
+            //Esto limpia el fondo y lo deja en blanco
+            //ctx.clearRect()
+
+            if (x <= 166){
+                ctx.fillStyle = "rgb(200,100,100)";
+            }else if (x <= 332){
+                ctx.fillStyle = "rgb(0, 255, 255)";
+            }else{
+                ctx.fillStyle = "rgb(128, 0, 128)";
+            }
+            //actualizamos la funcion del rectángulo
+            */
+        }
+
+        //Función que se repite en bucle, se arranca a ella misma
+        var step = function(){
+            //se ejecuta cada vez que el navegador recive un frame nuevo
+            window.requestAnimationFrame(step);
+            //Actualiza el objeto
+            update();
+            draw();
+        }
+
+        //Llamar a la función "step"
+        step();
+
+        //ctx.fillStyle = "rgb(200,100,100)";
+        //ctx.fillRect(10,40,100,40);
+        //ctx.fillstyle="rgb(200,100,100)";
+        //ctx.fillRect(100,90,10,40);
+
+        //console.log(ctx);
+    </script>
+</body>
+</html>

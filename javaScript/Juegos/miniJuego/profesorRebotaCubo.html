@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <!--<canvas width="500" heigth = "300" id="myCanvas"></canvas>-->
+    <script>
+        var ANCHO = 600;
+        var ALTO = 300;
+        var  canvas = document.createElement("canvas");
+        canvas.width = ANCHO;
+        canvas.height = ALTO;
+        canvas.id = "myCanvas";
+        document.body.appendChild(canvas);
+        var ctx = canvas.getContext("2d");
+        var x = 0,
+            y = 40,
+            w = 20,
+            h = 20;
+        var speed = 2;
+        var blueZone, greenZone;
+
+        var update = function(){
+            var crossRightLimit = x >= (ANCHO - w);
+            var crossLeftLimit = x <= 0;
+            if(crossRightLimit){
+                x = ANCHO - w;
+                speed = -speed;
+            }
+            else if(crossLeftLimit){
+                x = 0;
+                speed = -speed;
+            }
+            x = x + speed;
+           blueZone = x >= 0  && x < 200;
+           console.log(blueZone);
+        }
+        
+        var draw = function(){
+            ctx.clearRect(0, 0,ANCHO, ALTO);
+            if(blueZone){
+                ctx.fillStyle = "#0000FF";
+            }else{
+            ctx.fillStyle = "rgb(200,100,100)";
+            }
+            ctx.fillRect(x,y,w,h);
+        }
+        var step = function () {
+            window.requestAnimationFrame(step);
+            update();
+            draw();
+        }
+       step();
+    </script>
+</body>
+</html>

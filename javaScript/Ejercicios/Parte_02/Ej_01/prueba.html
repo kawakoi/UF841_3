@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<ol id="myList">
+  <li>Tea</li>
+  <li>Milk</li>
+  <li>Water</li>
+</ol>
+
+<p>Click the button to create a LI element.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+
+function myFunction() {
+  var x = document.createElement("li");
+  var t = document.createTextNode("Coffee");
+  x.appendChild(t);
+  document.getElementById("myList").appendChild(x);
+}
+
+</script>
+
+</body>
+</html>

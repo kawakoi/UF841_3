@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+    <title>Tabla de multiplicar</title>
+</head>
+<body>
+    
+    <div class="contenedor-principal">
+
+            <div class="form-header">
+                <img src="img/puny.png" alt="logo-web">
+                <h1><span>K</span>awakoi</h1>
+            </div>
+
+            <div class="contenedor-form">
+                <form action="POST" class="formulario">
+                    <div class="titulo-form">
+                        <h2>Tablas de multiplicar</h2>
+                    </div>
+
+                    <div class="input-form">
+                        <label class="label" for="numTabla">Introduce un número</label>
+                        <input type="text" class="input" name="numTabla" id="numTabla">
+                    </div>
+
+                    <input type="button" class="input" value="Mostrar la tabla" id="enviar" onclick="tabla()">
+                </form>
+            </div>
+
+        <div class="lista">
+            <div class="title-list">
+                <h2 id="tablaMult"></h2>
+            </div>
+
+            <div class="tabla-mult">
+                <ul id="tabla"></ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+<script>
+
+    function tabla(j){
+
+        //Guardamos el valor de "numTabla" introducido en el input
+        var numTabla = document.getElementById("numTabla").value;
+
+        //Devuelve el contenido con la id "tabla" y lo guarda en una variable
+        var tabla = document.getElementById("tabla");
+
+        //Introducimos un contenido en el HTML donde tengamos un elemento id "tablaMult"
+        document.getElementById("tablaMult").innerHTML ="Tabla de multiplicar del "+ numTabla;
+
+        //Creamos un bucle "while" para acceder al primer nodo secundario del nodo especificado "tabla" y lo eliminarlos con "removeChild" y repetirlo hasta eliminar la totalidad de la lista.
+        while (tabla.hasChildNodes()) {
+            tabla.removeChild(tabla.firstChild);
+            }
+    
+        //Creamos un bucle "for" para crear todos los elementos "li" de la tabla de multiplicar hasta llegar a "10"
+        for(i = 1 ; i <= 10 ; i++){
+            var crearLi = document.createElement("li");
+            // Crea un text node con el valor entre paréntesis.
+            var tabla = document.createTextNode(numTabla + " x " + i + " = " + numTabla * i);
+            // Agrega el ultimo hijo de un nodo ("<li>")
+            crearLi.appendChild(tabla);
+            // Añadir <li> a <ul> con id = "tabla"
+            document.getElementById("tabla").appendChild(crearLi);
+        }
+    }
+    
+</script>
+
+</body>
+</html>

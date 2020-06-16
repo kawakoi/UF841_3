@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+
+    <a class="ln" href="">Ir a la web</a>
+    <input id="myInput" value="Valor del input">
+    <a class="ln" href="">Ir a la otra web</a>
+
+    <ul id="miLista">
+        <!--
+        <li class ="c">Item 1</li>
+        <li class ="c">Item 2</li>
+        <li class ="c">Item 3</li>
+        <li class ="c">Item 4</li>
+        <li class ="c">Item 5</li>
+        <li class ="c">Item 6</li>
+        -->
+    </ul>
+
+    <script>
+        //selector
+        /*
+        console.log(document.getElementById("miLista"));//devuelve solo un elemento
+        console.log(document.getElementByClassName("c"));//Devuelve una lista, no se puede poner un listener
+        console.log(document.getElementByTagName("c"));//Devuelve una lista (array)
+
+        var c = document.querySelector("#miLista");//devuelve un solo elemento, el primero que encuentra
+        */
+
+        /*
+        var c = document.querySelectorAll("li");//Devuelve una lista y no se puede poner un listener a menos que tenga un "for"
+        
+        for (var i = 0; 1<c.length; i++);
+            c[i].addEventListener('click', function (){
+                this.parentNode.removeChild(this)
+            });
+            
+
+        console.log(c);
+        */
+
+            //los querySelector necesitan la sintaxis de css (. o #) para recoger el elemento;
+
+        /*
+        var lista = document.getElementById("miLista");
+
+        var input = document.getElementById("myInput");
+
+        input.addEventListener('keyup', function (event){
+            console.log(event.keyCode);
+            
+            if (event.keyCode == 13){
+                var item =document.createElement('li');
+                item.textContent = this.value;
+                input.value = '';
+                input.focus();
+
+                lista.appendChild(item);
+            }
+            
+        });
+        */
+
+        var lista = document.getElementById("miLista");
+
+        var input = document.getElementById("myInput");
+
+        input.addEventListener('keyup', function (event){
+        console.log(event.keyCode);
+        if (event.keyCode == 13){
+            var item =document.createElement('li');
+            item.textContent = this.value;
+
+            lista.appendChild(item);
+        }
+    
+});
+
+//Si la lista ya viene creada, para leerla necesito un for. Si la lista se crea de manera dinámica con una función no es necesario
+
+        
+    </script>
+</body>
+</html>

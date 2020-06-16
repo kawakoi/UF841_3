@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        //Esto se asegura de que el navegador se acaba de cargar para ejecutar el juego
+        window.addEventListener("load", function(){
+
+//__________________________VARIABLES_____________________________
+
+        var ANCHO = 360;//Las variables constantes se escriben con mayúsculas
+        var ALTO = 640;
+
+        //enemigos
+        var enemies = [
+            {
+                x: 0,
+                y: 100,
+                speedX: 1,
+                w: 40,
+                h:40
+            },
+            {
+                x: 100,
+                y: 200,
+                speedX: 2,
+                w: 40,
+                h:40
+            },
+            {
+                x: 100,
+                y: 300,
+                speedX: 0.5,
+                w: 40,
+                h:40
+            },
+            {
+                x: 10,
+                y: 400,
+                speedX: 0.5,
+                w: 40,
+                h:40
+            }
+        ]
+
+        //The player object
+        var player = {
+            x : ANCHO/2 - 20,
+            y :  540,
+            speedY: 2,
+            w: 40,
+            h: 40,
+            isMoving: false
+        }
+
+        //Movimiento del player
+        var movePlayer = function(){
+            player.isMoving = true;
+        }
+
+        //Altura del player
+        var stopPlayer = function(){
+            player.isMoving = false;
+        }
+
+        var hadouken = new Image();
+            hadouken.src = 'hadouken.png';
+        
+
+        var fondo = new Image();
+            fondo.src = "ryu.jpg";
+            console.log(fondo);
+
+        var canvas = document.createElement("canvas");
+        //ctx es el contexto que me deja escribir en canvas
+        var ctx = canvas.getContext("2d");
+        canvas.width = ANCHO;
+        canvas.height = ALTO;
+        canvas.id = "myCanvas";
+        document.body.appendChild(canvas);
+
+        //Crear los controles
+        canvas.addEventListener("mousedown", movePlayer);
+        canvas.addEventListener("mouseup", stopPlayer);
+
+        //crear los eventos tactiles
+        canvas.addEventListener("touchstart", movePlayer);
+        canvas.addEventListener("touchend", stopPlayer);
+
+//__________________________FUNCIONES_______________________________
+
+//************************ UPDATE ***************************
+
+        var update = function(){
+            //Mirar las colisiones
+
+            //update the player
+            if (player.isMoving){
+                player.y += -player.speedY;
+            }
+
+            //update enemies
+                enemies.forEach(function(enemy, index){
+                    var crossRightLimit = enemy.x >= (ANCHO - enemy.w);
+                    var crossLeftLimit = enemy.x <= 0;
+
+                    if(crossRightLimit){
+                        enemy.x = ANCHO - enemy.w;
+                        enemy.speedX *= -1;
+                    }else if(crossLeftLimit){
+                        enemy.x = 0;
+                        enemy.speedX *= -1;
+                    }
+                    enemy.x += enemy.speedX;
+                });
+
+        }
+
+//*************************** DRAW *******************************
+
+        var draw = function(){
+            //Limpiamos el canvas
+            ctx.clearRect(0, 0, ANCHO, ALTO);
+            ctx.drawImage(fondo, 0, 0, ANCHO, ALTO);
+            
+            //dibujamos el player
+            enemies.forEach();
+            var col = checkColision(player,enemies[0])
+            if(col){
+                ctx.fillStyle = "#FF0000";
+                //Aquí irá el cambio de variable y el refresco
+            }else{
+                ctx.fillStyle = "#33FF00";
+            }
+            ctx.fillRect(player.x, player.y, player.w, player.h);
+
+            //Dibujamos los enemigos
+            ctx.fillStyle = "#3333FF";
+        
+            enemies.forEach(function (element, index){
+                ctx.drawImage(hadouken, element.x, element.y, element.w, element.h);
+            });
+            
+  
+        }
+
+//*************************** COLLIDER ***************************
+
+        var checkColision = function (rect1, rect2){
+            var colBotton = rect1.y < (rect2.y + rect2.h);
+            var colTop = (rect1.y + rect1.h) > rect2.y;
+            var colRight = (rect1.x + rect1.w) > rect2.x;
+            var colLeft = rect1.x < (rect2.x + rect2.w);
+
+            var colision = colBotton && colTop && colLeft && colRight;
+            return colision;
+        }
+
+
+//*************************** STEP *********************************
+
+        //Función que se repite en bucle, se arranca a ella misma
+        var step = function(){
+            window.requestAnimationFrame(step);
+            update();
+            draw();
+        }
+
+        //Llamar a la función "step"
+        step();
+
+    });
+
+    //crear variable gamelive a true (si está en marcha o no)
+    //Si choca, la variable cambiará a false y requestAnimationFrame no se ejecutará
+    //Lanzar un alert
+    //cuando el juego acaba, esta variable es false y acaba el juego
+    //cuando haya una colision en la función checkColision, gameLive pasará a ser falso
+
+    </script>
+</body>
+</html>

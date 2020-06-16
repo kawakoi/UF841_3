@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        var monstruo = [{
+            color: "green"
+        }
+        {
+            color: "blau"
+
+        }
+        }]
+        */
+
+        //Creamos un constructor. Se empieza en mayúscula
+        var Monstruo = function (color, w){
+            this.color = color || 'negro';
+            this.w = w;
+            this.h = this.w * 2;
+            //this.asustar = function(){
+            //    console.log("UUUHHHH");
+            //}
+        }
+        
+        //Propiedades comunes
+        //Método de la clase comunes
+        Monstruo.prototype.asustar = function(){
+            console.log("UUUHHHH");
+        }
+
+        var monstruoVerde = new Monstruo("verde", 100);
+        var monstruoRojo = new Monstruo("rojo");
+
+        monstruoRojo.asustar();
+        monstruoRojo.w = 100;
+
+        //monstruoVerde.color = "Verde";
+        console.log(monstruoRojo);
+        console.log(monstruoVerde);
+
+        //var monstruoVerde = new Monstruo("verde");
+        //console.log(monstruoVerde)
+
+        var monsters = [];
+
+        for (var i = 0; i<10; i++){
+            monsters['monstruo'+i] = new Monstruo();
+        }
+
+        monsters['monstuo6'].color= "red";
+
+        console.log(monsters);
+
+    </script>
+</body>
+</html>

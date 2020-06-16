@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Contraseña</title>
+</head>
+<body>
+    
+    <!-- Validar formulario: Comparar dos campos contraseña. -->
+
+        <form action="POST" class="formulario">
+            <h2>Actualiza tu nueva contraseña</h2>
+    
+                <label for="pass1">Nueva contraseña</label>
+                <input type="password" name="pass1" id="pass1">
+
+                <label for="pass2">Repite la contraseña</label>
+                <input type="password" name="pass2" id="pass2">
+
+                <input type="button" value="Actualizar contraseña" id="enviar" onclick="insert()">
+
+    <script>
+
+    function insert(){
+
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+
+        if (pass1 != pass2) {
+            alert("El password no coincide");
+        } else if (pass1.length < 6 || pass2.length < 6) {
+		    alert("El password debe contener almenos 6 carácteres");
+        } else {
+            alert("La contraseña se ha actualizada correctamente");
+        }
+    }
+
+    </script>
+</body>
+</html>

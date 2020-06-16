@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="image-gallery">
+        <h4>IMAGE GALLERY</h4>
+
+        <section id="gallery-preview">
+          <img src="images/original" alt="image-gallery-1">
+        </section>
+
+        <section id="gallery-thumbnails">
+          <img src="img/thumb/ryu-thumb.jpg" alt="image-gallery-1">     
+          <img src="img/thumb/ken-thumb.jpg" alt="image-gallery-2">
+          <img src="img/thumb/kyo-thumb.jpg" alt="image-gallery-3">
+          <img src="img/thumb/Iori-thumb.jpg" alt="image-gallery-4">
+        </section> 
+
+      </section>
+
+      <script>
+(function(){
+
+let imagePreview = document.querySelector("#gallery-preview img");
+let imageThumbnail = document.getElementById("gallery-thumbnails");
+
+imageThumbnail.addEventListener("mouseover", imageChanger);
+
+function imageChanger(e) {
+  imagePreview.src = e.target.src;
+}
+})();
+
+    </script>
+
+</body>
+</html>

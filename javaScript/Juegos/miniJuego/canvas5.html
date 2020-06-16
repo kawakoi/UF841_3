@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<canvas width="500" height = "300" id="myCanvas"></canvas>-->
+    <script>
+        window.addEventListener("load", function () {
+
+//__________________________VARIABLES_____________________________
+
+            var ANCHO = 360;
+            var ALTO = 640;
+
+            var gameLive = true;
+
+            //enemies
+            var enemies = [{
+                    x: 0,
+                    y: 100,
+                    speedX: 1,
+                    w: 40,
+                    h: 40
+                },
+                {
+                    x: 100,
+                    y: 200,
+                    speedX: 2,
+                    w: 40,
+                    h: 40
+                },
+                {
+                    x: 100,
+                    y: 300,
+                    speedX: 0.5,
+                    w: 40,
+                    h: 40
+                },
+                {
+                    x: 10,
+                    y: 400,
+                    speedX: 0.5,
+                    w: 40,
+                    h: 40,
+                }
+            ]
+                //TODO crear el objeto Goal ( ej: tesoro ).
+
+            var tesoro = {
+                x: 50,
+                y: 160,
+                w:40,
+                h: 40
+            }
+
+            //the player object
+            var player = {
+                x: ANCHO / 2 - 20,
+                y: 540,
+                speedY: 2,
+                w: 40,
+                h: 40,
+                isMoving: false
+            }
+            //moure el Player
+            var movePlayer = function () {
+                player.isMoving = true;
+            }
+            //Aturar el player
+            var stopPlayer = function () {
+                player.isMoving = false;
+            }
+
+            //Creamos el canvas
+            var canvas = document.createElement("canvas");
+            canvas.width = ANCHO;
+            canvas.height = ALTO;
+            canvas.id = "myCanvas";
+
+            //Añadimos el canvas al body
+            document.body.appendChild(canvas);
+            //accedemos con...
+            var ctx = canvas.getContext("2d");
+
+            //crear los eventos del mouse
+            canvas.addEventListener("mousedown", movePlayer);
+            canvas.addEventListener("mouseup", stopPlayer);
+
+            //crear los eventos tactiles
+            canvas.addEventListener("touchstart", movePlayer);
+            canvas.addEventListener("touchend", stopPlayer);
+            
+//__________________________FUNCIONES_______________________________
+
+//************************ UPDATE ***************************
+
+            var update = function () {
+
+                if(checkColision(player, tesoro)){
+                        alert("Has ganado!");
+                        //refresca la página
+                        window.location = "";
+                    }
+
+                //update the player
+                if (player.isMoving) {
+                    player.y += -player.speedY;
+                }
+                //update the enemies
+
+                //recorremos cada enemigo del array enemies
+                enemies.forEach(function (enemy, index) {
+
+                    if(checkColision(player, enemy)){
+                        gameLive = false;
+                        alert("Game Over");
+                        //refresca la página
+                        window.location = "";
+                    }
+
+                    var crossRightLimit = enemy.x >= (ANCHO - enemy.w);
+                    var crossLeftLimit = enemy.x <= 0;
+
+                    if (crossRightLimit) {
+                        enemy.x = ANCHO - enemy.w;
+                        enemy.speedX *= -1;
+                    } else if (crossLeftLimit) {
+                        enemy.x = 0;
+                        enemy.speedX *= -1;
+                    }
+                    enemy.x += enemy.speedX;
+                });
+            }
+
+//*************************** DRAW *******************************
+
+            var draw = function () {
+                //limpiar el canvas
+                ctx.clearRect(0, 0, ANCHO, ALTO);
+
+                //dibujar el player si colisionamos cambiamos el color
+                
+                /*
+                enemies.forEach(function (element, index) {
+                    ctx.fillRect(element.x, element.y, element.w, element.h);
+​
+                });
+                */
+                var col = checkColision(player, enemies[0])
+                console.log(col);
+                
+                ctx.fillStyle = "#33FF00";
+
+                //TODO dibujar el Goal.
+
+                ctx.fillRect(tesoro.x, tesoro.y, tesoro.w, tesoro.h);
+                ctx.fillStyle = "#FF6060";
+
+                //dibujar enemies
+                ctx.fillRect(player.x, player.y, player.w, player.h);
+                ctx.fillStyle = "#3333FF";
+
+                enemies.forEach(function (element, index) {
+                    ctx.fillRect(element.x, element.y, element.w, element.h);
+                
+                });
+            }
+
+//*************************** COLLIDER ***************************
+
+            var checkColision = function (rect1, rect2){
+                var colBottom = rect1.y < (rect2.y + rect2.h);
+                var colTop = (rect1.y + rect1.h)  > rect2.y;
+                var colRight = (rect1.x + rect1.w) > rect2.x;
+                var colLeft = rect1.x < (rect2.x + rect2.w);
+
+                var colision = colBottom && colTop && colRight && colLeft;
+                return colision;
+            }
+
+//*************************** STEP *********************************
+
+            var step = function () {
+                update();
+                draw();
+                if (gameLive) {
+                    window.requestAnimationFrame(step);
+                }
+
+            }
+            step();
+        });
+
+    </script>
+</body>
+</html>

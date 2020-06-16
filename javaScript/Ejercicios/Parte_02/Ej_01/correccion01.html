@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="#">
+        <label for="usuario"></label>
+        <input type="text" id="usuario">
+        <input type="button" value="Enviar Mensaje" onclick="insert()" id="enviar">
+        <input type="button" value="Resetear lista" onclick="resetea()" id="reset">
+        <ul id="lista">
+        </ul>
+    </form>
+
+        <script>
+            function insert() {
+                var x = document.createElement("li");
+                var usuario = document.getElementById("usuario").value;
+                var t = document.createTextNode(usuario);
+                x.appendChild(t);
+                document.getElementById("lista").appendChild(x);
+            }
+            
+            function resetea() {
+                var list = document.getElementById("lista");
+                while (list.hasChildNodes()) {
+                    list.removeChild(list.firstChild);
+                    }
+                }
+        </script>
+</body>
+</html>
+

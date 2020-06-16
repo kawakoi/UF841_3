@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form_id">
+        <input name="form_element"/>
+        <ul>
+            <li>foo</li>
+            <li>bar</li>
+        </ul>
+    </form>
+    <script>
+        var form = document.getElementById('form_id');
+form.form_element.value = 'hello world';
+
+var ul = form.getElementsByTagName('ul');
+ul = ul && ul[0];
+console.log(ul);
+
+var lis = form.getElementsByTagName('li');
+for (var i = 0; i < lis.length; i++) {
+    console.log(lis[i].innerText);
+}
+    </script>
+</body>
+</html>

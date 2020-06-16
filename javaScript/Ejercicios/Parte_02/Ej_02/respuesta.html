@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <form action="#">
+            <label for="anadir">Mi lista de la compra:</label>
+            <input type="text" name="anadir" id="anadir">
+            <input type="button" value="Añadir a la lista">
+        </form>    
+        
+        <ul id="listaCompra"></ul>
+        
+        <p>Nota: Puedes eliminar elementos de la lista haciendo doble click sobre ellos</p>
+       </div>
+
+       <script>
+           window.onload = init;
+        function init(){
+            botonEnvio = document.querySelector('[type="button"]');
+            nuevoItem = document.querySelector('[type="text"]');
+            listaCompra = document.getElementById("listaCompra");
+            
+            botonEnvio.addEventListener("click",anadir);
+        }
+
+        function anadir(e){
+            evento = e || window.event;
+            if (nuevoItem.value == ""){
+                evento.preventDefault();
+            }else{
+            var lista = document.createElement("li");
+            lista.innerHTML = nuevoItem.value;
+            lista.addEventListener("click",eliminarLi);
+            listaCompra.appendChild(lista);
+            nuevoItem.value = "";
+            }
+        }
+
+        function eliminarLi(){
+            this.parentNode.removeChild(this);
+        }
+       </script>
+</body>
+</html>

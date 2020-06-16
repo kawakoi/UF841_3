@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:required{
+            background-color: red;
+        }
+
+        input:valid{
+            background-color: green;
+        }
+        input:invalid{
+            background-color: indigo;
+        }
+        input:invalid:required{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <form id="myForm" onsubmit="return myValidacion()">
+        Name <br><input class="textInput" type='text' required pattern="^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$"><br>
+        Repite el Nombre <br><input class="textInput" type='text' required pattern="^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$"><br>
+        EMAIL: <br><input class="textInput" type='email' required><br>
+        Age: <br><input type="number" min="0" step="5" max="100"><br>
+        Pets: <br><input id="petCheckBox" type='checkBox'><br>
+        <div id="petSelection">
+            Pet: <br><select>
+                <Option value="Dog">Dog</Option>
+                <Option value="Cat">Cat</Option>
+                <Option value="Bird">Bird</Option>
+                <Option value="Other">Other</Option>
+            </select><br>
+        </div>
+        <br><input id='saveButton' type='submit' value='save'>
+    </form>
+
+    <script>
+        const myform = document.getElementById("myForm");
+
+        
+        //console.log(myForm.elements[0]);
+
+        myForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            myValidacion();
+            /*
+            //console.log(name1);
+            const name1 = myForm.elements[0].value;
+            const name2 = myForm.elements[1].value;
+
+
+            if(name1 === name2){
+                console.log("los nombres coinciden");
+                myForm.submit();
+            }else{
+                
+                console.log("los nombres no coinciden");
+            }
+            */
+        });
+
+
+        function myValidacion(){
+            event.preventDefault();
+            //console.log(name1);
+            const name1 = myForm.elements[0].value;
+            const name2 = myForm.elements[1].value;
+            const addr = myForm.elements[2].value;
+            //let valido = true;
+
+
+            if(name1 !== name2){
+                //valido = false
+                //console.log("los nombres coinciden");
+                //myForm.submit();
+                console.log("los nombres no coinciden");
+                return false;
+            }
+
+            if(!(/^[a-z]{3,20}[0-9]$/.test(addr))){
+                console.log("la direccion no es correcta");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</body>
+</html>

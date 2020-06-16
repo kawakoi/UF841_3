@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Creación de nodos mediante javascript">
+        <meta name="author" content="Francesc Ricart">
+        <title>Ejercicio - La lista de la compra</title>
+    </head>
+    <body>
+        
+    <form action="#">
+        <input type="text" class="introduccionDatos" id="introduccionDatos">
+        
+        <input type="button" value="Añadir a la lista" id="anadir">
+        <input type="button" value="Reiniciar" id="reiniciar">
+    </form>
+   
+   <ul id="elementoUl">   
+   </ul>   
+   
+    <script>
+        window.onload = init;
+        function init(){
+            document.getElementById("anadir").addEventListener("click",anadirElemento);
+            document.getElementById("reiniciar").addEventListener("click",reiniciarLista);
+        }
+           
+        function anadirElemento(){
+            var elementoUl = document.getElementById("elementoUl");
+            var aux = document.getElementById("introduccionDatos");
+            if (aux.value != ""){
+                var elementoLi = document.createElement("li");
+                elementoLi.innerHTML = aux.value;
+                elementoUl.appendChild(elementoLi);
+                aux.value="";
+            }else{window.alert("Debes rellenar el formulario")}
+        }
+        
+           
+        function reiniciarLista(){
+            var elementosEliminar = document.getElementsByTagName("li");
+            
+            while(elementosEliminar.length!=0){
+              elementosEliminar[0].parentNode.removeChild(elementosEliminar[0]);   
+            }
+        }
+        
+    </script>
+   
+    </body>
+</html>

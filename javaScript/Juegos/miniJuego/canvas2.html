@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        //Esto se asegura de que el navegador se acaba de cargar para ejecutar el juego
+        window.addEventListener("load", function(){
+
+//__________________________VARIABLES_____________________________
+
+        var ANCHO = 300;//Las variables constantes se escriben con mayúsculas
+        var ALTO = 600;
+
+        //enemigos
+        var enemies = [
+            {
+                x: 0,
+                y: 100,
+                speedX: 1,
+                w: 40,
+                h:40
+            },
+            {
+                x: 100,
+                y: 200,
+                speedX: 2,
+                w: 40,
+                h:40
+            },
+            {
+                x: 100,
+                y: 500,
+                speedX: 0.5,
+                w: 40,
+                h:40
+            },
+            {
+                x: 10,
+                y: 400,
+                speedX: 0.5,
+                w: 40,
+                h:40
+            }
+        ]
+
+        var hadouken = new Image();
+            hadouken.src = 'hadouken.png';
+        
+
+        var fondo = new Image();
+            fondo.src = "ryu.jpg";
+            console.log(fondo);
+
+        var canvas = document.createElement("canvas");
+        //ctx es el contexto que me deja escribir en canvas
+        var ctx = canvas.getContext("2d");
+        canvas.width = ANCHO;
+        canvas.height = ALTO;
+        canvas.id = "myCanvas";
+        document.body.appendChild(canvas);
+
+//__________________________FUNCIONES_______________________________
+
+//************************ UPDATE ***************************
+
+        //funciones como expresiones, guardar una función dentro de una variable.
+        var update = function(){
+
+    //1. FUNCIÓ CON UN BUCLE WHILE
+            /*
+            var i =0;
+            var n = enemies.length;
+
+            while(i < n){
+                enemies[i].x += enemies[i].speedX;
+                i++;
+            }
+            */
+
+    //2. FUNCIÓN CON UN BUCLE FOR
+            /*
+            var n = enemies.length;
+
+            for(var i = 0; i < n; i++){
+                enemies[i].x += enemies[i].speedX;
+            }
+            */
+
+    //3. FUNCIÓN CON BUCLE FOREACH
+
+            //var crossRightLimit = enemies.x >= (ANCHO - enemies.speedX);
+            //var crossLeftLimit = enemies.x <= 0;
+
+                enemies.forEach(function(enemy){
+                    var crossRightLimit = enemy.x >= (ANCHO - enemy.w);
+                    var crossLeftLimit = enemy.x <= 0;
+
+                    if(crossRightLimit){
+                        //Forzamos la posición para evitar bloqueos.
+                        enemy.x = ANCHO - enemy.w;
+                        // es lo mismo enemy.speedX = -enemy.speedX;
+                        enemy.speedX *= -1;
+                    }else if(crossLeftLimit){
+                        //forzar la posición para evitar bloqueos
+                        enemy.x = 0;
+                        enemy.speedX *= -1;
+                    }
+                    enemy.x += enemy.speedX;
+                });
+
+        }
+
+//*************************** DRAW *******************************
+
+        var draw = function(){
+            ctx.clearRect(0, 0, ANCHO, ALTO);
+            ctx.drawImage(fondo, 0, 0, ANCHO, ALTO);
+            ctx.fillStyle = "#3333FF";
+            
+    //1. FUNCIÓN CON BUCLE WHILE
+            /*
+            var i = 0;
+            var n = enemies.length;
+            while (i < n){
+                //ctx.fillRect(enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h);
+                i++;
+            }
+
+            */
+
+    //2. FUNCIÓN CON BUCLE FOR
+            /*
+            var n = enemies.length;
+            for(var i = 0; i < n; i++){
+                ctx.fillRect(enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h);
+            }
+            */
+    
+    //3. FUNCIÓN FOREACH
+
+            /*
+            //Este bucle mostrará un recuadro rojo en pantalla
+            enemies.forEach(function (element, index){
+                ctx.fillRect(element.x, element.y, element.w, element.h);
+            });
+            */
+
+            enemies.forEach(function (element, index){
+                ctx.drawImage(hadouken, element.x, element.y, element.w, element.h);
+            });
+  
+        }
+
+//*************************** STEP *********************************
+
+        //Función que se repite en bucle, se arranca a ella misma
+        var step = function(){
+            window.requestAnimationFrame(step);
+            update();
+            draw();
+        }
+
+        //Llamar a la función "step"
+        step();
+
+    });
+
+    </script>
+</body>
+</html>

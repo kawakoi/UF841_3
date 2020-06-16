@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    li {
+        background-color: aquamarine;
+        width: 100px;
+        cursor: pointer;
+    }
+</style>
+
+<div id="container">
+    <form action="#">
+        <label for="anadir">Mi lista de la compra:</label>
+        <input type="text" name="anadir" id="anadir">
+        <input type="button" value="Añadir a la lista" onclick="insert()">
+    </form>
+    <ul id="listaCompra"></ul>
+    <p>Nota: Puedes eliminar elementos de la lista haciendo doble click sobre ellos</p>
+</div>
+
+<script>
+    function insert() {
+        //cada vez que se ejecuta esta funcion al clicar en el boton Añadir a la lista:
+        //se crea un elemento li nuevo y se guarda en crearLi ( puede que sea mejor renombrarlo por algo como nuevoLi)
+        var crearLi = document.createElement("li");
+
+        //Se recoge el valor de input con id "anadir"
+        var anadir = document.getElementById("anadir").value;
+
+        //Se crea un "escuchador" que ejecutara una funcion al clicar sobre el elemento li nuevo. Cada listener es independiente y 
+        //exclusivo del nuevo li creado. con this podemos acceder a  dicho li i tomar acciones que le afecten solo a el.
+        crearLi.addEventListener("click", function () {
+
+            //Al clicar sobre el li se elimina a si mismo.
+            this.parentNode.removeChild(this);//Compatible con todos los navegadores
+            //this.remove();//solo Navegadores modernos
+        });
+
+        //si el campo anadir no esta en blanco 
+        if (anadir != "") {
+
+            //Se crea un nodo de texto con el valor que hemos recogido en anadir
+            var texto = document.createTextNode(anadir); 
+
+            //Se inyecta el nodo de texto como hijo del li nuevo
+            crearLi.appendChild(texto);
+            
+            //se inyecta el elemento (nodo) li nuevo (entero ya con el texto) como hijo de la lista (<ul> ) con id listaCompra
+            document.getElementById("listaCompra").appendChild(crearLi);
+        } else {
+            //
+            window.alert("Debes introducir un anadir");
+        }
+    }
+</script>
+
+</body>
+</html>

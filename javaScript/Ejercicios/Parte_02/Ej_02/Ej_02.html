@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="container">
+        <form action="#">
+            <label for="anadir">Mi lista de la compra:</label>
+
+            <input type="text" name="anadir" id="anadir">
+            
+            <input type="button" value="Añadir a la lista" onclick="insert()">
+        </form>    
+        
+        <ul id="listaCompra"></ul>
+        
+        <p>Nota: Puedes eliminar elementos de la lista haciendo doble click sobre ellos</p>
+       </div>
+
+    <script>
+        /*
+        Dado el html a continuación crea una lista de recordatorios según la imagen que:
+
+        Creada una lista añada cualquier información escrita en el cajetín de texto cuando se pulse el botón enviar.
+        En caso que el cajetín esté vacío no se añadirá nada a la lista.
+        Para eliminar elementos lista se hará con un doble click.
+        El javascript se añadirá al cargar el documento. Intenta que el código html esté lo más limpio posible.
+        El color del fondo es #ccc.
+        */
+
+        function insert() {
+            // Crea una etiqueta <li> node
+            var crearLi = document.createElement("li");
+
+            //Recoge el valor del id "recordatorio"
+            var anadir = document.getElementById("anadir").value;
+
+            crearLi.addEventListener("click",eliminarLi);
+
+            if(anadir != ""){
+                // Crea un text node con el valor de la variable "recordatorio"
+                var texto = document.createTextNode(anadir);
+                // Agrega el ultimo hijo de un nodo ("<li>")
+                crearLi.appendChild(texto);
+                // Añadir <li> a <ul> con id = "listaCompra"
+                document.getElementById("listaCompra").appendChild(crearLi);
+            }else{
+                window.alert("Debes introducir un anadir");
+            }
+        }
+
+        function eliminarLi(){
+            this.parentNode.removeChild(this);
+        }
+            
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+*{
+    box-sizing:border-box;
+}
+
+div{
+    float:left;
+}
+
+.contenedor-producto{
+    width:600px;
+    height:550px;
+    margin:auto;
+}
+
+.imagen-principal{
+    width:100%;
+    height:500px;
+    border:1px solid #ff0000;
+    background-repeat: no-repeat;/*Para que no se repita por defecto*/
+    /*background-size:contain;*/
+
+}
+
+[class *= "subImagen-"]{
+    width:25%;
+    height:150px;
+    border:1px solid #0000ff;
+    background-size: cover;/*Se ajustará al tamaño del cuadro*/
+}
