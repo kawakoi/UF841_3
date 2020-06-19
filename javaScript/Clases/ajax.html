@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+
+//-----Se usa para pedir y recibir información a servidores externos-----
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();//Creamos un objeto
+
+  //Se utiliza un get/post para enviar un contenido para refrescarlo en mi web
+  //En este caso solicitamos un txt al servidor
+  //True sirve para que la página no se bloquee
+  xhttp.open("GET", "http://web2020.ddns.net:3000/cd_catalog.xml", true);
+
+  xhttp.onreadystatechange = function() {
+    console.log(this.readyState);
+    
+    //Si este objeto (el de la función) se completa, la función "readyState" valdrá 4 (readyState contiene 4 estados)
+    //Si "status" es igual a 200 (la página funciona). Si devuelve 404 es el error de la página no encontrada...
+    if (this.readyState == 4 && this.status == 200) {
+      //Insertamos el recurso solicitado en el HTML
+      document.getElementById("demo").innerHTML =
+
+      //Aquí recibe lo que se ha introducido 
+      //this.responseText;
+      this.responseXML;
+
+      //Esto mostrará el documento solicitado
+      console.log(this.responseText);
+    }
+  };
+
+
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

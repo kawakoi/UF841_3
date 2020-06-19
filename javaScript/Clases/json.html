@@ -1,0 +1,36 @@
+<script>
+
+var perro = {
+    nombre: "wifi",
+    raza: "canina",
+    edad: 7,
+    amigo: {nombre: "perrito", raza: "Hysky"},// puede ser: "null"
+    ladrar: function() {
+        console.log("uau");
+    }
+}
+
+console.log(perro);
+
+//esta funcion coge el objeto y lo pasa a json
+
+var myJSON = JSON.stringify(perro);
+document.write(myJSON);
+console.log(myJSON);
+
+//Formato JSON (texto, por eso siempre va entre comillas simples)
+var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+//la función parse espera un JSON y lo intenta convertir en objeto
+var myObj = JSON.parse(myJSON);
+console.log(myObj);
+document.getElementById("demo").innerHTML = myObj.name;
+
+
+
+
+
+
+var xhttp = new XMLHttpRequest();
+http.
+
+</script>

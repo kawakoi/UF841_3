@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Styles -->
+    <link href="../../styles/style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Admin Styles -->
+    <link href="../../styles/admin.css" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/8b299e0b08.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+    
+    <title>Admin Section - Manage Categories</title>
+</head>
+<body>
+
+<!--********************* HEADER ******************************-->
+
+    <header>
+
+<div class="logo">
+    <h1 class="logo-text"><span>K</span>awakoi</h1>
+</div>
+<i class="fa fa-bars menu-toggle"></i>
+<ul class="nav">
+    <li>
+        <a href="#">
+            <i class="fa fa-user"></i>
+            Usuario
+            <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
+        </a>
+        <ul>
+            <li><a href="#" class="logout">Logout</a></li>
+        </ul>
+    </li>
+</ul>
+
+    </header>
+<!-- END Header -->
+
+<!-- Admin Page Wrapper -->
+<div class="admin-wrapper">
+
+    <!-- left Sidebar -->
+    <div class="left-sidebar">
+        <ul>
+            <li><a href="../posts/indice.html">Manage Posts</a></li>
+            <li><a href="../users/indice.html">Manage Users</a></li>
+            <li><a href="indice.html">Manage Categories</a></li>
+        </ul>
+    </div>
+    <!-- END left Sidebar -->
+
+<!--********************* Admin Content ****************************-->
+    <div class="admin-content">
+        <div class="button-group">
+            <a href="create.html" class="btn btn-big">Añadir Categorías</a>
+            <a href="indice.html" class="btn btn-big">Gestionar Categorías</a>
+        </div>
+
+        <div class="content">
+            <h2 class="page-title">Manage Categories</h2>
+            <table>
+                <thead>
+                    <th>SN</th>
+                    <th>Nombre</th>
+                    <th colspan="2">Acción</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ropa</td>
+                        <td><a href="#" class="editar">Edit</a></td>
+                        <td><a href="#" class="eliminar">Eliminar</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Figuras</td>
+                        <td><a href="#" class="editar">Edit</a></td>
+                        <td><a href="#" class="eliminar">Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Admin Content -->
+
+
+</div>
+<!-- END Page Wrapper -->
+
+
+<!-- JQuery -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Custom Script -->
+<script src="../../js/scripts.js"></script>
+
+</body>
+</html>
